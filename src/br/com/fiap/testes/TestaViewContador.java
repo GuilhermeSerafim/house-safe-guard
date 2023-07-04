@@ -4,14 +4,17 @@ import java.sql.SQLException;
 
 import javax.swing.JFrame;
 
-import br.com.fiap.view.ClienteFrame;
 import br.com.fiap.view.ContadorFrame;
 
-public class TestaViewCliente {
+public class TestaViewContador {
 
 	public static void main(String[] args) {
-		ClienteFrame frame = null;
-		frame = new ClienteFrame();
+		ContadorFrame frame = null;
+		try {
+			frame = new ContadorFrame();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
