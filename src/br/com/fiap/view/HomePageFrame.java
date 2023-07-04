@@ -1,13 +1,16 @@
 package br.com.fiap.view;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 
 public class HomePageFrame extends JFrame {
 
@@ -18,6 +21,7 @@ public class HomePageFrame extends JFrame {
     public HomePageFrame() {
         Container container = getContentPane();
         setLayout(null);
+        container.setBackground(Color.LIGHT_GRAY);
 
         botaoEntrar = new JButton("Entrar");
         botaoCadastrar = new JButton("Cadastrar");
@@ -26,6 +30,13 @@ public class HomePageFrame extends JFrame {
         botaoEntrar.setBounds(100, 50, 200, 30);
         botaoCadastrar.setBounds(100, 100, 200, 30);
         botaoCalcular.setBounds(100, 150, 200, 30);
+
+        Color borderColor = new Color(0, 0, 255); // Cor azul
+        Border border = BorderFactory.createLineBorder(borderColor);
+        
+        botaoEntrar.setBorder(border);
+        botaoCadastrar.setBorder(border);
+        botaoCalcular.setBorder(border);
 
         container.add(botaoEntrar);
         container.add(botaoCadastrar);
@@ -68,11 +79,11 @@ public class HomePageFrame extends JFrame {
 
     private void calcular() {
         ContadorFrame contador;
-		try {
-			contador = new ContadorFrame();
-	        contador.setVisible(true);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+        try {
+            contador = new ContadorFrame();
+            contador.setVisible(true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
