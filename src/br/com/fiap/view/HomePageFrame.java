@@ -21,7 +21,7 @@ public class HomePageFrame extends JFrame {
 
         botaoEntrar = new JButton("Entrar");
         botaoCadastrar = new JButton("Cadastrar");
-        botaoCalcular = new JButton("Calcular");
+        botaoCalcular = new JButton("Cotação");
 
         botaoEntrar.setBounds(100, 50, 200, 30);
         botaoCadastrar.setBounds(100, 100, 200, 30);
