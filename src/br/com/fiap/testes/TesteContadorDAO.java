@@ -14,11 +14,11 @@ public class TesteContadorDAO {
 		public static void main(String[] args) throws SQLException {
 
 			ContadorDAO dao = new ContadorDAO();
-			Contador emerson = new Contador("Emerson", "casa", 100000.0);
-			Contador adriane = new Contador("Adriane", "apartamento", 200000.0);
+			//Contador emerson = new Contador("Emerson", "casa",  100000.0);
+			//Contador adriane = new Contador("Adriane", "apartamento", 200000.0);
 			
-			dao.insert(emerson);
-			dao.insert(adriane);
+			//dao.insert(emerson);
+			//dao.insert(adriane);
 			
 
 			List<Contador> Contadores = dao.selectAll();

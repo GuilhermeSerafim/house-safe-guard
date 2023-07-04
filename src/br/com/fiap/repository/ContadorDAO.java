@@ -20,7 +20,7 @@ public class ContadorDAO {
 			}
 
 			public void insert(Contador contador ) {
-				String sql = "insert into contador(nome,tp_residencia,valor,data) values (?,?,?,?)";
+				String sql = "insert into contador(nome,tp_residencial,valor,dataCadastro) values (?,?,?,?)";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					stmt.setString(1, contador.getNome()); 
@@ -45,7 +45,7 @@ public class ContadorDAO {
 						Contador contador = new Contador();
 						contador.setId(rs.getInt("id"));
 						contador.setNome(rs.getString("nome"));
-						contador.setTpResidencia(rs.getString("tp_residencia"));
+						contador.setTpResidencia(rs.getString("tp_residencial"));
 						contador.setValor(rs.getDouble("valor"));
 						contador.setDataCadastro(rs.getDate("dataCadastro"));
 
@@ -70,7 +70,7 @@ public class ContadorDAO {
 						contador = new Contador();
 						contador.setId(rs.getInt("id"));
 						contador.setNome(rs.getString("nome"));
-						contador.setTpResidencia(rs.getString("tp_residencia"));
+						contador.setTpResidencia(rs.getString("tp_residencial"));
 						contador.setValor(rs.getDouble("valor"));
 						contador.setDataCadastro(rs.getDate("dataCadastro"));
 					}
@@ -95,7 +95,7 @@ public class ContadorDAO {
 			}
 
 			public void update(Contador contador) {
-				String sql = "update contador set nome=? , tp_residencia =? , valor=? where id=?";
+				String sql = "update contador set nome=? , tp_residencial =? , valor=? where id=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					stmt.setString(1, contador.getNome());
