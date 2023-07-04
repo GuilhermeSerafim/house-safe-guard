@@ -19,7 +19,7 @@ public class ClienteDAO {
 				}
 
 				public void insert(Cliente cliente) {
-					String sql = "insert into cliente(nm_completo,cpf,email,cep,telefone,dt_nasc,senha) values (?,?,?,?,?,?,?)";
+					String sql = "insert into cliente(nm_completo,cpf,email,cep,telefone,dt_nasc,dataCadastro, senha) values (?,?,?,?,?,?,?,?)";
 					try {
 						PreparedStatement stmt = conexao.prepareStatement(sql);
 						stmt.setString(1, cliente.getNm_completo()); 
@@ -27,8 +27,9 @@ public class ClienteDAO {
 						stmt.setString(3, cliente.getEmail());
 						stmt.setString(4, cliente.getCep());
 						stmt.setString(5, cliente.getTelefone());
-						stmt.setDate(6, cliente.getDataNascimento());
-						stmt.setString(7, cliente.getSenha());
+						stmt.setDate(6,cliente.getDataNascimento());
+						stmt.setDate(7,cliente.getDataCadastro());
+						stmt.setString(8, cliente.getSenha());
 
 						stmt.execute(); 
 						stmt.close();
@@ -39,19 +40,21 @@ public class ClienteDAO {
 
 				public List<Cliente> selectAll() {
 					List<Cliente> clientes = new ArrayList<Cliente>();
-					String sql = "select * from cliente order by nome";
+					String sql = "select * from cliente order by nm_completo";
 					try {
 						PreparedStatement stmt = conexao.prepareStatement(sql);
 						ResultSet rs = stmt.executeQuery();
 
 						while (rs.next()) {
 							Cliente cliente = new Cliente();
+							cliente.setId(rs.getInt("id"));
 							cliente.setNm_completo(rs.getString("nm_completo"));
 							cliente.setCpf(rs.getString("cpf"));
 							cliente.setEmail(rs.getString("email"));
 							cliente.setTelefone(rs.getString("telefone"));
 							cliente.setCep(rs.getString("cep"));
 							cliente.setSenha(rs.getString("senha"));
+							cliente.setDataNascimento(rs.getDate("dt_nasc"));
 							cliente.setDataCadastro(rs.getDate("dataCadastro"));
 
 							clientes.add(cliente);
@@ -73,6 +76,7 @@ public class ClienteDAO {
 						ResultSet rs = stmt.executeQuery();
 						while (rs.next()) {
 							cliente = new Cliente ();
+							cliente.setId(rs.getInt("id"));
 							cliente.setNm_completo(rs.getString("nm_completo"));
 							cliente.setCpf(rs.getString("cpf"));
 							cliente.setEmail(rs.getString("email"));
