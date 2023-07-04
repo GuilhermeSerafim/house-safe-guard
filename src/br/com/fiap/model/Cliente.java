@@ -2,6 +2,8 @@ package br.com.fiap.model;
 
 import java.sql.Date;
 
+import br.com.fiap.util.CriptografiaUtils;
+
 public class Cliente {
 		
 			//Declarando variaveis;
@@ -71,7 +73,11 @@ public class Cliente {
 			}
 
 			public void setSenha(String senha) {
-				this.senha = senha;
+				try {
+					this.senha = CriptografiaUtils.criptografar(senha);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 
 			public String getTelefone() {
