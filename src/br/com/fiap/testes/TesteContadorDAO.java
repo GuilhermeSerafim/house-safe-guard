@@ -24,8 +24,6 @@ public class TesteContadorDAO {
 			//dao.insert(emerson);
 			//dao.insert(adriane);
 			
-			try {
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
 			ClienteDAO da = new ClienteDAO();
 			Cliente isa = new Cliente("Isabella Sousa", "54191563858", "isabellasousa619gmail.com", "04243150", "isalinda", "11954712587", Date.valueOf("2005-04-05"));
 			
@@ -50,12 +48,10 @@ public class TesteContadorDAO {
 				System.out.println(Cliente.getCpf());
 				System.out.println(Cliente.getCep());
 				System.out.println(Cliente.getSenha());
-				System.out.println(sdf.format(Cliente.getDataNascimento()));
+				System.out.println(Cliente.getDataNascimento());
 			}
-		}catch(Exception e) {
-			e.printStackTrace();		
+			}
 		}
-		}
-}
+
 			
 
