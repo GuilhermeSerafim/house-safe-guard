@@ -6,7 +6,8 @@ public class Cliente {
 		
 			//Declarando variaveis;
 			String nm_completo,cpf, email,cep,senha,telefone;
-			Date dataNascimento,dataCadastro;
+			Date dataNascimento;
+			Date dataCadastro;
 			int id;
 	
 			public Cliente () {
@@ -22,7 +23,7 @@ public class Cliente {
 				this.senha = senha;
 				this.telefone = telefone;
 				this.dataNascimento = dataNascimento;
-				this.dataCadastro = dataCadastro;
+				this.dataCadastro = new Date (System.currentTimeMillis());
 				
 				//Criação dos moetodos get e set
 			}
