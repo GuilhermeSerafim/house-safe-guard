@@ -13,6 +13,7 @@ public class Contador {
 	public Contador(){
 		
 	}
+	
 	// Construtor
 	public Contador(String nome, String tpResidencia, Double valor) {
 		this.nome = nome;
