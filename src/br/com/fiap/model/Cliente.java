@@ -2,18 +2,22 @@ package br.com.fiap.model;
 
 import java.sql.Date;
 
+import br.com.fiap.util.CriptografiaUtils;
+
 public class Cliente {
 		
 			//Declarando variaveis;
 			String nm_completo,cpf, email,cep,senha,telefone;
-			Date dataNascimento,dataCadastro;
+			Date dataNascimento;
+			Date dataCadastro;
+			int id;
 	
 			public Cliente () {
 				
 			}
 			//criação do primeiro método construtor
 			public Cliente(String nm_completo, String cpf, String email, String cep, String senha,
-					String telefone, Date dataNascimento, Date dataCadastro) {
+					String telefone, Date dataNascimento) {
 				this.nm_completo = nm_completo;
 				this.cpf = cpf;
 				this.email = email;
@@ -21,13 +25,19 @@ public class Cliente {
 				this.senha = senha;
 				this.telefone = telefone;
 				this.dataNascimento = dataNascimento;
-				this.dataCadastro = dataCadastro;
+				this.dataCadastro = new Date (System.currentTimeMillis());
 				
 				//Criação dos moetodos get e set
 			}
 			
 			
 
+			public int getId() {
+				return id;
+			}
+			public void setId(int id) {
+				this.id = id;
+			}
 			public String getNm_completo() {
 				return nm_completo;
 			}
@@ -63,7 +73,11 @@ public class Cliente {
 			}
 
 			public void setSenha(String senha) {
-				this.senha = senha;
+				try {
+					this.senha = CriptografiaUtils.criptografar(senha);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 
 			public String getTelefone() {
