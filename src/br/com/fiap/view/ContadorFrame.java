@@ -16,7 +16,10 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import br.com.fiap.model.Contador;
+import br.com.fiap.model.Apartamento;
+import br.com.fiap.model.Casa;
+import br.com.fiap.model.Condominio;
+import br.com.fiap.model.Cotador;
 import br.com.fiap.repository.ContadorDAO;
 
 public class ContadorFrame extends JFrame {
@@ -31,11 +34,15 @@ public class ContadorFrame extends JFrame {
 	private double valorCotacao1;
 	private double valorCotacao2;
 	private double valorCotacao3;
-    private Contador contador;
+    private Cotador cotador;
+    private Casa casa = new Casa ();
+    private Apartamento apto = new Apartamento ();
+    private Condominio cond = new Condominio ();
+    
 
 
     public ContadorFrame() throws SQLException {
-        contador = new Contador() ;
+        cotador = new Cotador() ;
         Container container = getContentPane();
         setLayout(null);
 
@@ -145,7 +152,7 @@ public class ContadorFrame extends JFrame {
         botaoCalcular.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	ArrayList <Double> resultado = CotCalcular(contador.getValor());
+            	ArrayList <Double> resultado = CotCalcular(cotador.getValor());
                JOptionPane.showMessageDialog(container, "O resultado e:" + resultado);
             }
         });
@@ -169,7 +176,7 @@ public class ContadorFrame extends JFrame {
             String nome = (String) modelo.getValueAt(tabela.getSelectedRow(), 1);
             String tpResidencia = (String) modelo.getValueAt(tabela.getSelectedRow(), 2);
             Double valor = (double) modelo.getValueAt(tabela.getSelectedRow(), 3);
-            Contador cont = new Contador(nome, tpResidencia, valor);
+            Cotador cont = new Cotador(nome, tpResidencia, valor);
             cont.setId(id);
             this.dao.update(cont);
             JOptionPane.showMessageDialog(this, "Item alterado com sucesso!");
@@ -191,9 +198,9 @@ public class ContadorFrame extends JFrame {
     }
 
     private void preencherTabela() {
-        List<Contador> contadores = dao.selectAll();
+        List<Cotador> contadores = dao.selectAll();
         try {
-            for (Contador contador : contadores) {
+            for (Cotador contador : contadores) {
                 modelo.addRow(new Object[] { contador.getId(), contador.getNome(), contador.getTpResidencia() });
             }
         } catch (Exception e) {
@@ -204,7 +211,7 @@ public class ContadorFrame extends JFrame {
     private void salvar() {
         if (!textoNome.getText().equals("") && !textoTpResidencia.getText().equals("")
                 && !textoValor.getText().equals("")) {
-            Contador contador = new Contador(textoNome.getText(), textoTpResidencia.getText(),
+            Cotador contador = new Cotador(textoNome.getText(), textoTpResidencia.getText(),
                     Double.parseDouble(textoValor.getText()));
             this.dao.insert(contador);
             JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
@@ -222,66 +229,72 @@ public class ContadorFrame extends JFrame {
 
 	public ArrayList <Double> CotCalcular(double valor) {
 
-  
-    ArrayList <Double> cot = new ArrayList <Double>();
-
-
-    	
-if (contador.getTpResidencia().equalsIgnoreCase("Casa")) {
+	    ArrayList <Double> cot = new ArrayList <Double>();
+	    
+	if (cotador.getTpResidencia().equalsIgnoreCase("Casa")) {
+				
+				System.out.println("Seguro Básico: "+ "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\n");
+			this.valorCotacao1 = casa.SeguroBasico(valor) ;
+			System.out.println(valorCotacao1);
 			
+			System.out.println("Seguro Intermediário: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\n");
+			this.valorCotacao2 = casa.SeguroIntermediario(valor) ;
+			System.out.println(valorCotacao2);
+			
+			System.out.println("Seguro Avançado: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\nVidros" + "\nVazamento de Tubulacoes" + "\n");
+			this.valorCotacao3 = casa.SeguroCompleto(valor) ;
+			System.out.println(valorCotacao3);
+			
+			cot.add (valorCotacao1);
+			cot.add (valorCotacao2);
+			cot.add (valorCotacao2);
+			
+			return cot;
+		
+			} else if (cotador.getTpResidencia().equalsIgnoreCase(" Apartamento")) {
 			System.out.println("Seguro Básico: "+ "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\n");
-		this.valorCotacao1 = ((valor / 100)*0.006)*30 ;
-		System.out.println(valorCotacao1);
+			this.valorCotacao1 = apto.SeguroBasico(valor) ;
+			System.out.println(valorCotacao1);
+			
+			System.out.println("Seguro Intermediário: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\n");
+			this.valorCotacao2 = apto.SeguroIntermediario(valor) ;
+			System.out.println(valorCotacao2);
+			
+			System.out.println("Seguro Avançado: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\nVidros" + "\nVazamento de Tubulacoes" + "\n");
+			this.valorCotacao3 = apto.SeguroCompleto(valor) ;
+			System.out.println(valorCotacao3);
+			
+			cot.add (valorCotacao1);
+			cot.add (valorCotacao2);
+			cot.add (valorCotacao2);
+			
+			return cot;
 		
-		System.out.println("Seguro Intermediário: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\n");
-		this.valorCotacao2 = ((valor / 100)*0.0069)*30 ;
-		System.out.println(valorCotacao2);
 		
-		System.out.println("Seguro Avançado: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\nVidros" + "\nVazamento de Tubulacoes" + "\n");
-		this.valorCotacao3 = ((valor / 100)*0.0084)*30 ;
-		System.out.println(valorCotacao3);
-		
-		cot.add (valorCotacao1);
-		cot.add (valorCotacao2);
-		cot.add (valorCotacao2);
-		
-		return cot;
-	
-		} else if (contador.getTpResidencia().equalsIgnoreCase(" Apartamento")) {
-		System.out.println("Seguro Básico: "+ "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\n");
-		this.valorCotacao1 = ((valor / 100)*0.002)*30 ;
-		System.out.println(valorCotacao1);
-		
-		System.out.println("Seguro Intermediário: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\n");
-		this.valorCotacao2 = ((valor / 100)*0.0029)*30;
-		System.out.println(valorCotacao2);
-		
-		System.out.println("Seguro Avançado: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\nVidros" + "\nVazamento de Tubulacoes" + "\n");
-		this.valorCotacao3 = ((valor / 100)*0.0044)*30 ;
-		System.out.println(valorCotacao3);
-		
-		return cot;
-	
-	
-	} else if (contador.getTpResidencia().equalsIgnoreCase("Casa Condominio")) {
-		System.out.println("Seguro Básico: "+ "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\n");
-		this.valorCotacao1 = ResidenciaCondomio.SeguroBasico(valor);
-		System.out.println(valor);
-		
-		System.out.println("Seguro Intermediário: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\n");
-		this.valorCotacao2 = ResidenciaCondomio.SeguroIntermediario(valor);
-		System.out.println(valor);
-		
-		System.out.println("Seguro Avançado: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\nVidros" + "\nVazamento de Tubulacoes" + "\n");
-		this.valorCotacao3 = ResidenciaCondomio.SeguroAvancado(valor);
-		System.out.println(valor);
-		return cot ;
+		} else if (cotador.getTpResidencia().equalsIgnoreCase("Casa Condominio")) {
+			System.out.println("Seguro Básico: "+ "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\n");
+			this.valorCotacao1 = cond.SeguroBasico(valor);
+			System.out.println(valor);
+			
+			System.out.println("Seguro Intermediário: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\n");
+			this.valorCotacao2 = cond.SeguroIntermediario(valor);
+			System.out.println(valor);
+			
+			System.out.println("Seguro Avançado: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\nVidros" + "\nVazamento de Tubulacoes" + "\n");
+			this.valorCotacao3 = cond.SeguroCompleto(valor);
+			System.out.println(valor);
 
-}
-return cot;
-	
+			cot.add (valorCotacao1);
+			cot.add (valorCotacao2);
+			cot.add (valorCotacao2);
+			
+			return cot;
+
+	}
+	return cot;
 		
-}
+			
+	}
     	
        
     

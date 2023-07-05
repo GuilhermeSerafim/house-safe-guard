@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.fiap.connection.ConnectionFactory;
-import br.com.fiap.model.Contador;
+import br.com.fiap.model.Cotador;
 
 public class ContadorDAO {
 	
@@ -19,7 +19,7 @@ public class ContadorDAO {
 				this.conexao = ConnectionFactory.conectar();
 			}
 
-			public void insert(Contador contador ) {
+			public void insert(Cotador contador ) {
 				String sql = "insert into contador(nome,tp_residencial,valor,dataCadastro) values (?,?,?,?)";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
@@ -34,15 +34,15 @@ public class ContadorDAO {
 				}
 			}
 
-			public List<Contador> selectAll() {
-				List<Contador> contadores = new ArrayList<Contador>();
+			public List<Cotador> selectAll() {
+				List<Cotador> contadores = new ArrayList<Cotador>();
 				String sql = "select * from contador order by nome";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					ResultSet rs = stmt.executeQuery();
 
 					while (rs.next()) {
-						Contador contador = new Contador();
+						Cotador contador = new Cotador();
 						contador.setId(rs.getInt("id"));
 						contador.setNome(rs.getString("nome"));
 						contador.setTpResidencia(rs.getString("tp_residencial"));
@@ -59,15 +59,15 @@ public class ContadorDAO {
 				return contadores;
 			}
 
-			public Contador selectById(int id) {
-				Contador contador = null;
+			public Cotador selectById(int id) {
+				Cotador contador = null;
 				String sql = "select * from contador where id=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					stmt.setInt(1, id);
 					ResultSet rs = stmt.executeQuery();
 					while (rs.next()) {
-						contador = new Contador();
+						contador = new Cotador();
 						contador.setId(rs.getInt("id"));
 						contador.setNome(rs.getString("nome"));
 						contador.setTpResidencia(rs.getString("tp_residencial"));
@@ -94,7 +94,7 @@ public class ContadorDAO {
 				}
 			}
 
-			public void update(Contador contador) {
+			public void update(Cotador contador) {
 				String sql = "update contador set nome=? , tp_residencial =? , valor=? where id=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
