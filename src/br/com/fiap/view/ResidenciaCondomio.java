@@ -8,17 +8,17 @@ public interface ResidenciaCondomio {
 		
 		//private Contador valor;
 
-		public static  double SeguroBasico (double seguro, double valor) {
-			return seguro = ((valor / 100)*0.004)*30 ;
+		public static  double SeguroBasico (double valor) {
+			return ( ((valor / 100)*0.004)*30) ;
 		}
 			
 		
-		public static double SeguroIntermediario (double seguro, double valor) {
-			return seguro = ((valor / 100)*0.0049)*30 ;
+		public static double SeguroIntermediario ( double valor) {
+			return (((valor / 100)*0.0049)*30) ;
 		}
 		
-		public static double SeguroAvancado (double seguro, double valor) {
-			return seguro = ((valor / 100)*0.0064)*30 ;
+		public static double SeguroAvancado ( double valor) {
+			return ( ((valor / 100)*0.0064)*30) ;
 		}
 		
 		public static double AssistenciaEspecial (double seguro, double assistencia) {
