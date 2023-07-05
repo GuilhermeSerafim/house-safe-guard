@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 
 import br.com.fiap.view.ContadorFrame;
 
-public class TestaViewContador {
+public class TestaViewCotador {
 
 	public static void main(String[] args) {
 		ContadorFrame frame = null;
