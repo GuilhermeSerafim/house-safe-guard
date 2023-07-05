@@ -2,7 +2,7 @@ package br.com.fiap.model;
 
 import java.sql.Date;
 
-public class Contador {
+public class Cotador {
 
 	private int id;
 	private String nome;
@@ -10,12 +10,12 @@ public class Contador {
 	private Double valor;
 	private Date dataCadastro;
 	
-	public Contador(){
+	public Cotador(){
 		
 	}
 	
 	// Construtor
-	public Contador(String nome, String tpResidencia, Double valor) {
+	public Cotador(String nome, String tpResidencia, Double valor) {
 		this.nome = nome;
 		this.tpResidencia = tpResidencia;
 		this.valor = valor;

@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import br.com.fiap.model.Cliente;
-import br.com.fiap.model.Contador;
+import br.com.fiap.model.Cotador;
 import br.com.fiap.repository.ClienteDAO;
 import br.com.fiap.repository.ContadorDAO;
 
@@ -30,8 +30,8 @@ public class TesteContadorDAO {
 			da.insert(isa);
 			
 
-			List<Contador> Contadores = dao.selectAll();
-			for (Contador Contador : Contadores) {
+			List<Cotador> Contadores = dao.selectAll();
+			for (Cotador Contador : Contadores) {
 				System.out.println(Contador.getId());
 				System.out.println(Contador.getNome());
 				System.out.println(Contador.getTpResidencia());
