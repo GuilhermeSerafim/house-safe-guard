@@ -20,7 +20,7 @@ public class CotadorDAO {
 			}
 
 			public void insert(Cotador contador ) {
-				String sql = "insert into contador(cpf,nome,tp_residencial,valor,dataCadastro) values (?,?,?,?,?)";
+				String sql = "insert into cotador(cpf,nome,tp_residencial,valor,dataCadastro) values (?,?,?,?,?)";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					stmt.setString(1, contador.getCpf()); 
@@ -37,7 +37,7 @@ public class CotadorDAO {
 
 			public List<Cotador> selectAll() {
 				List<Cotador> contadores = new ArrayList<Cotador>();
-				String sql = "select * from contador order by nome";
+				String sql = "select * from cotador order by nome";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					ResultSet rs = stmt.executeQuery();
@@ -62,7 +62,7 @@ public class CotadorDAO {
 
 			public Cotador selectByCpf(String cpf) {
 				Cotador contador = null;
-				String sql = "select * from contador where cpf=?";
+				String sql = "select * from cotador where cpf=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					stmt.setString(1, cpf);
@@ -84,7 +84,7 @@ public class CotadorDAO {
 			}
 
 			public void delete(String cpf) {
-				String sql = "delete from contador where cpf=?";
+				String sql = "delete from cotador where cpf=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					stmt.setString(1, cpf);
@@ -96,7 +96,7 @@ public class CotadorDAO {
 			}
 
 			public void update(Cotador contador) {
-				String sql = "update contador set nome=? , tp_residencial =? , valor=? where cpf=?";
+				String sql = "update cotador set nome=? , tp_residencial =? , valor=? where cpf=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					stmt.setString(1, contador.getNome());

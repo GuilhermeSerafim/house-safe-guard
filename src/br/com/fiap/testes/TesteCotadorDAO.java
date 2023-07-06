@@ -18,16 +18,16 @@ public class TesteCotadorDAO {
 		public static void main(String[] args) throws SQLException{
 
 			CotadorDAO dao = new CotadorDAO();
-			//Contador emerson = new Contador("Emerson", "casa",  100000.0);
+			Cotador isa = new Cotador("54191563858","Emerson", "casa",  100000.0);
 			//Contador adriane = new Contador("Adriane", "apartamento", 200000.0);
 			
-			//dao.insert(emerson);
+			dao.insert(isa);
 			//dao.insert(adriane);
 			
 			ClienteDAO da = new ClienteDAO();
-			Cliente isa = new Cliente("54191563858", "Isabella Sousa", "isabellasousa619gmail.com", "04243150", "isalinda", "11954712587", Date.valueOf("2005-04-05"));
+		Cliente isabella = new Cliente("54191563858", "Isabella Sousa", "isabellasousa619gmail.com", "04243150", "isalinda", "11954712587", Date.valueOf("2005-04-05"));
 			
-			da.insert(isa);
+		da.insert(isabella);
 			
 
 			List<Cotador> Contadores = dao.selectAll();
