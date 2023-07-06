@@ -254,7 +254,7 @@ public class ContadorFrame extends JFrame {
      
        ArrayList <Double> cot = new ArrayList <Double>();
        if (textoTpResidencia.getText().equalsIgnoreCase("Casa")) {
-    	   System.out.println("Seguros para Residência Casa: \n");
+    	   System.out.println("Seguros para Residencia Casa: \n");
 
 			System.out.println("\nSeguro Básico: "+ "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar");
 		this.valorCotacao1 = casa.SeguroBasico(valor);
@@ -272,32 +272,37 @@ public class ContadorFrame extends JFrame {
 		cot.add (valorCotacao2);
 		cot.add (valorCotacao3);
 		
+	       System.out.print("\nO valor dos seguros basico, intermediario, completo custam, respectivamente: " );
+
+	       
 		return cot;
 		
        } else if (textoTpResidencia.getText().equalsIgnoreCase("Apartamento")) {
 
-    	   System.out.println("Seguros para Residência Apartamento: \n");
+    	   System.out.println("Seguros para Residencia Apartamento: \n");
     	   
     	   System.out.println("\nSeguro Básico: "+ "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\n");
    		this.valorCotacao1 = apto.SeguroBasico(valor);
    		System.out.printf("\nO valor do seguro basico e: %.2f \n" ,valorCotacao1);
    		
    		System.out.println("\nSeguro Intermediário: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\n");
-		this.valorCotacao2 = apto.SeguroBasico(valor);
+		this.valorCotacao2 = apto.SeguroIntermediario(valor);
    		System.out.printf("\nO valor do seguro intermediario e: %.2f \n" ,valorCotacao2);
 		
 		System.out.println("\nSeguro Avançado: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\nVidros" + "\nVazamento de Tubulacoes" + "\n");
-		this.valorCotacao3 = apto.SeguroBasico(valor);
+		this.valorCotacao3 = apto.SeguroCompleto(valor);
    		System.out.printf("\nO valor do seguro completo e: %.2f \n" ,valorCotacao3);
    		
    		cot.add (valorCotacao1);
 		cot.add (valorCotacao2);
 		cot.add (valorCotacao3);
 		
+	       System.out.print("\nO valor dos seguros basico, intermediario, completo custam, respectivamente: " );
+
 		return cot;
 
        } else if (textoTpResidencia.getText().equalsIgnoreCase("Casa Condominio")) {
-    	   System.out.println("Seguros para Residência Casa Condominio: \n");
+    	   System.out.println("Seguros para Residencia Casa Condominio: \n");
     	   
    		System.out.println("\nSeguro Básico: "+ "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\n");
    		this.valorCotacao1 = cond.SeguroBasico(valor);
@@ -315,9 +320,12 @@ public class ContadorFrame extends JFrame {
 		cot.add (valorCotacao2);
 		cot.add (valorCotacao3);
 		
+	       System.out.print("\nO valor dos seguros basico, intermediario, completo custam, respectivamente: " );
+
+		
    		return cot ;
    }
-   return cot;
+       return cot;
    	
    		
    }
