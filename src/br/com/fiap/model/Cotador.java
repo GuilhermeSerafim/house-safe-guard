@@ -13,7 +13,8 @@ public class Cotador {
 	}
 	
 	// Construtor
-	public Cotador(String nome, String tpResidencia, Double valor) {
+	public Cotador(String cpf, String nome, String tpResidencia, Double valor) {
+		this.cpf = cpf;
 		this.nome = nome;
 		this.tpResidencia = tpResidencia;
 		this.valor = valor;
