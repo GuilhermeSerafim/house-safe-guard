@@ -1,6 +1,6 @@
 
-	package br.com.fiap.view;
-	import java.awt.Color;
+package br.com.fiap.view;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,7 +37,7 @@ import br.com.fiap.repository.CotadorDAO;
 		private double valorCotacao1;
 		private double valorCotacao2;
 		private double valorCotacao3;
-		private Cotador contador;
+		private Cotador cotador;
 		
 		public CotadorFrame() throws SQLException {
 	        Container container = getContentPane();
@@ -147,7 +147,7 @@ import br.com.fiap.repository.CotadorDAO;
 	        botaoCalcular.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
-	            	contador = new Cotador();
+	            	cotador = new Cotador();
 	            	ArrayList <Double> resultado = CotCalcular(Double.parseDouble(textoValor.getText()));
 	              System.out.println(resultado);
 	            }
@@ -191,10 +191,12 @@ import br.com.fiap.repository.CotadorDAO;
 	    }
 	    
 	    private void preencherTabela() {
-	        List<Cotador> contadores = dao.selectAll();
+	        List<Cotador> cotadores = dao.selectAll();
 	        try {
-	            for (Cotador cotador : contadores) {
-	            	modelo.addRow(new Object[] { cotador.getCpf(), cotador.getNome(), cotador.getTpResidencia(), cotador.getValor()});
+	        	
+	            for (Cotador cotador : cotadores) {
+	            	modelo.addRow(new Object[] { cotador.getId(), cotador.getNome(), cotador.getTpResidencia(), cotador.getValor()});
+	           
 	            }
 	        } catch (Exception e) {
 	            throw e;
@@ -279,3 +281,10 @@ import br.com.fiap.repository.CotadorDAO;
 	       
 	   }
 	   
+ 
+        
+        
+  
+        
+        
+        
