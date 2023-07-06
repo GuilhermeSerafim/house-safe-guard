@@ -10,7 +10,7 @@ public class Cliente {
 			String nm_completo,cpf, email,cep,senha,telefone;
 			Date dataNascimento;
 			Date dataCadastro;
-			int id;
+			Double valor_seguro;
 	
 			public Cliente () {
 				
@@ -32,11 +32,12 @@ public class Cliente {
 			
 			
 
-			public int getId() {
-				return id;
+	
+			public Double getValor_seguro() {
+				return valor_seguro;
 			}
-			public void setId(int id) {
-				this.id = id;
+			public void setValor_seguro(Double valor_seguro) {
+				this.valor_seguro = valor_seguro;
 			}
 			public String getNm_completo() {
 				return nm_completo;

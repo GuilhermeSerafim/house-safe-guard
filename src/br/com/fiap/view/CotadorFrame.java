@@ -158,36 +158,38 @@ import br.com.fiap.repository.CotadorDAO;
 	    }
 	    private void alterar() {
 	        Object objetoDaLinha = modelo.getValueAt(tabela.getSelectedRow(), tabela.getSelectedColumn());
-	        if (objetoDaLinha instanceof Integer) {
-	            Integer id = (Integer) objetoDaLinha;
+	        if (objetoDaLinha instanceof String) {
+	            String cpf = (String) objetoDaLinha;
 	            String nome = (String) modelo.getValueAt(tabela.getSelectedRow(), 1);
 	            String tpResidencia = (String) modelo.getValueAt(tabela.getSelectedRow(), 2);
 	            Double valor = (double) modelo.getValueAt(tabela.getSelectedRow(), 3);
 	            Cotador cont = new Cotador(nome, tpResidencia, valor);
-	            cont.setId(id);
+	            cont.setCpf(cpf);
 	            this.dao.update(cont);
 	            JOptionPane.showMessageDialog(this, "Item alterado com sucesso!");
 	        } else {
-	            JOptionPane.showMessageDialog(this, "Por favor, selecionar o ID");
+	            JOptionPane.showMessageDialog(this, "Por favor, selecionar o CPF");
 	        }
 	    }
 	    private void deletar() {
 	        Object objetoDaLinha = modelo.getValueAt(tabela.getSelectedRow(), tabela.getSelectedColumn());
-	        if (objetoDaLinha instanceof Integer) {
-	            Integer id = (Integer) objetoDaLinha;
-	            this.dao.delete(id);
+	        if (objetoDaLinha instanceof String) {
+	        	String cpf = (String) objetoDaLinha;
+	            this.dao.delete(cpf);
 	            modelo.removeRow(tabela.getSelectedRow());
 	            JOptionPane.showMessageDialog(this, "Item excluído com sucesso!");
 	        } else {
-	            JOptionPane.showMessageDialog(this, "Por favor, selecionar o ID");
+	            JOptionPane.showMessageDialog(this, "Por favor, selecionar o CPF");
 	        }
 	    }
 	    
 	    private void preencherTabela() {
 	        List<Cotador> cotadores = dao.selectAll();
 	        try {
+	        	
 	            for (Cotador cotador : cotadores) {
 	            	modelo.addRow(new Object[] { cotador.getId(), cotador.getNome(), cotador.getTpResidencia(), cotador.getValor()});
+	           
 	            }
 	        } catch (Exception e) {
 	            throw e;

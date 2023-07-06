@@ -25,14 +25,13 @@ public class TesteCotadorDAO {
 			//dao.insert(adriane);
 			
 			ClienteDAO da = new ClienteDAO();
-			Cliente isa = new Cliente("Isabella Sousa", "54191563858", "isabellasousa619gmail.com", "04243150", "isalinda", "11954712587", Date.valueOf("2005-04-05"));
+			Cliente isa = new Cliente("54191563858", "Isabella Sousa", "isabellasousa619gmail.com", "04243150", "isalinda", "11954712587", Date.valueOf("2005-04-05"));
 			
 			da.insert(isa);
 			
 
 			List<Cotador> Contadores = dao.selectAll();
 			for (Cotador Contador : Contadores) {
-				System.out.println(Contador.getId());
 				System.out.println(Contador.getNome());
 				System.out.println(Contador.getTpResidencia());
 				System.out.println(Contador.getValor());
