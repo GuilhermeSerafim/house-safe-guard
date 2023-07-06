@@ -25,9 +25,9 @@ public class TesteCotadorDAO {
 			//dao.insert(adriane);
 			
 			ClienteDAO da = new ClienteDAO();
-		//	Cliente isabella = new Cliente("54191563858", "Isabella Sousa", "isabellasousa619gmail.com", "04243150", "isalinda", "11954712587", Date.valueOf("2005-04-05"));
+		Cliente isabella = new Cliente("54191563858", "Isabella Sousa", "isabellasousa619gmail.com", "04243150", "isalinda", "11954712587", Date.valueOf("2005-04-05"));
 			
-		//	da.insert(isabella);
+		da.insert(isabella);
 			
 
 			List<Cotador> Contadores = dao.selectAll();

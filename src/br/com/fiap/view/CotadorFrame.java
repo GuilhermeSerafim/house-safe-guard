@@ -50,8 +50,8 @@ import br.com.fiap.repository.CotadorDAO;
 	        
 	        labelNome.setBounds(10, 10, 240, 15);
 	        labelCpf.setBounds(10, 50, 240, 15);
-	        labelTpResidencia.setBounds(10, 50, 240, 15);
-	        labelValor.setBounds(10, 100, 240, 15);
+	        labelTpResidencia.setBounds(10,100, 240, 15);
+	        labelValor.setBounds(10, 150, 240, 15);
 	        
 	        labelNome.setForeground(Color.BLACK);
 	        labelCpf.setForeground(Color.BLACK);
@@ -69,8 +69,8 @@ import br.com.fiap.repository.CotadorDAO;
 	        textoValor = new JTextField();
 	        
 	        textoNome.setBounds(10, 25, 265, 20);
-	        textoCpf.setBounds(10, 25, 265, 20);
-	        textoTpResidencia.setBounds(10, 70, 265, 20);
+	        textoCpf.setBounds(10, 70, 265, 20);
+	        textoTpResidencia.setBounds(10, 120, 265, 20);
 	        textoValor.setBounds(10, 120, 265, 20);
 	        
 	        container.add(textoNome);
@@ -82,9 +82,9 @@ import br.com.fiap.repository.CotadorDAO;
 	        botaoLimpar = new JButton("Limpar");
 	        botaoCalcular = new JButton("Calcular");
 	        
-	        botaoSalvar.setBounds(10, 150, 80, 20);
-	        botaoLimpar.setBounds(100, 150, 80, 20);
-	        botaoCalcular.setBounds(190, 150, 100, 20);
+	        botaoSalvar.setBounds(10, 250, 80, 20);
+	        botaoLimpar.setBounds(100, 250, 80, 20);
+	        botaoCalcular.setBounds(190, 250, 100, 20);
 	        
 	        container.add(botaoSalvar);
 	        container.add(botaoLimpar);
@@ -92,7 +92,7 @@ import br.com.fiap.repository.CotadorDAO;
 	        
 	        tabela = new JTable();
 	        modelo = (DefaultTableModel) tabela.getModel();
-	        modelo.addColumn("Id do Usuario");
+	        modelo.addColumn("Cpf do Usuario");
 	        modelo.addColumn("Nome do Usuario");
 	        modelo.addColumn("TpResidencia");
 	        modelo.addColumn("Valor");
@@ -195,7 +195,7 @@ import br.com.fiap.repository.CotadorDAO;
 	        try {
 	        	
 	            for (Cotador cotador : cotadores) {
-	            	modelo.addRow(new Object[] { cotador.getId(), cotador.getNome(), cotador.getTpResidencia(), cotador.getValor()});
+	            	modelo.addRow(new Object[] { cotador.getCpf(), cotador.getNome(), cotador.getTpResidencia(), cotador.getValor()});
 	           
 	            }
 	        } catch (Exception e) {
@@ -203,9 +203,9 @@ import br.com.fiap.repository.CotadorDAO;
 	        }
 	    }
 	    private void salvar() {
-	        if (!textoNome.getText().equals("") && !textoTpResidencia.getText().equals("")
+	        if (!textoCpf.getText().equals("") && !textoNome.getText().equals("") && !textoTpResidencia.getText().equals("")
 	                && !textoValor.getText().equals("")) {
-	            Cotador contador = new Cotador(textoCpf.gettextoNome.getText(), textoTpResidencia.getText(),
+	            Cotador contador = new Cotador(textoCpf.getText(), textoNome.getText(), textoTpResidencia.getText(),
 	                    Double.parseDouble(textoValor.getText()));
 	            this.dao.insert(contador);
 	            JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
@@ -215,6 +215,7 @@ import br.com.fiap.repository.CotadorDAO;
 	        }
 	    }
 	    private void limpar() {
+	        this.textoCpf.setText("");
 	        this.textoNome.setText("");
 	        this.textoTpResidencia.setText("");
 	        this.textoValor.setText("");
@@ -241,7 +242,12 @@ import br.com.fiap.repository.CotadorDAO;
 			cot.add (valorCotacao2);
 			cot.add (valorCotacao2);
 			
+	   		System.out.print("Os valores dos seguro basico, intermediario e completo sao, respectivamente: ");
+
+			
 			return cot;
+			
+
 			
 	       } else if (textoTpResidencia.getText().equalsIgnoreCase("Apartamento")) {
 	   		System.out.println("Seguro Básico: "+ "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\n");
@@ -255,6 +261,9 @@ import br.com.fiap.repository.CotadorDAO;
 			System.out.println("Seguro Avançado: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\nVidros" + "\nVazamento de Tubulacoes" + "\n");
 			this.valorCotacao3 = apto.SeguroBasico(valor);
 			System.out.println(valorCotacao3);
+			
+	   		System.out.print("Os valores dos seguro basico, intermediario e completo sao, respectivamente: ");
+
 			
 			return cot;
 
@@ -270,7 +279,12 @@ import br.com.fiap.repository.CotadorDAO;
 	   		System.out.println("Seguro Avançado: " + "\nSeguro Incendio" + "\nSeguro Roubo" + "\nSeguro Danos Eletricos" +"\nDesp Aluguel" + "\nRC Familiar" + "\nVendaval" + "\nVidros" + "\nVazamento de Tubulacoes" + "\n");
 	   		this.valorCotacao3 = cond.SeguroCompleto(valor);
 	   		System.out.println(valor);
+	   		
+	   		System.out.print("Os valores dos seguro basico, intermediario e completo sao, respectivamente: ");
+
 	   		return cot ;
+	   		
+	   		
 	   }
 	   return cot;
 	   	
