@@ -10,12 +10,12 @@ import java.util.List;
 import br.com.fiap.connection.ConnectionFactory;
 import br.com.fiap.model.Cotador;
 
-public class ContadorDAO {
+public class CotadorDAO {
 	
 
 	      private Connection conexao;
 
-			public ContadorDAO() throws SQLException {
+			public CotadorDAO() throws SQLException {
 				this.conexao = ConnectionFactory.conectar();
 			}
 
