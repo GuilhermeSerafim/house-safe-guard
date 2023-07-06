@@ -20,13 +20,14 @@ public class CotadorDAO {
 			}
 
 			public void insert(Cotador contador ) {
-				String sql = "insert into contador(nome,tp_residencial,valor,dataCadastro) values (?,?,?,?)";
+				String sql = "insert into contador(cpf,nome,tp_residencial,valor,dataCadastro) values (?,?,?,?,?)";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
-					stmt.setString(1, contador.getNome()); 
-					stmt.setString(2, contador.getTpResidencia());
-					stmt.setDouble(3, contador.getValor());
-					stmt.setDate(4, contador.getDataCadastro());
+					stmt.setString(1, contador.getCpf()); 
+					stmt.setString(2, contador.getNome()); 
+					stmt.setString(3, contador.getTpResidencia());
+					stmt.setDouble(4, contador.getValor());
+					stmt.setDate(5, contador.getDataCadastro());
 					stmt.execute(); 
 					stmt.close();
 				} catch (SQLException e) {
@@ -43,7 +44,7 @@ public class CotadorDAO {
 
 					while (rs.next()) {
 						Cotador contador = new Cotador();
-						contador.setId(rs.getInt("id"));
+						contador.setCpf(rs.getString("cpf"));
 						contador.setNome(rs.getString("nome"));
 						contador.setTpResidencia(rs.getString("tp_residencial"));
 						contador.setValor(rs.getDouble("valor"));
@@ -59,16 +60,16 @@ public class CotadorDAO {
 				return contadores;
 			}
 
-			public Cotador selectById(int id) {
+			public Cotador selectByCpf(String cpf) {
 				Cotador contador = null;
-				String sql = "select * from contador where id=?";
+				String sql = "select * from contador where cpf=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
-					stmt.setInt(1, id);
+					stmt.setString(1, cpf);
 					ResultSet rs = stmt.executeQuery();
 					while (rs.next()) {
 						contador = new Cotador();
-						contador.setId(rs.getInt("id"));
+						contador.setCpf(rs.getString("cpf"));
 						contador.setNome(rs.getString("nome"));
 						contador.setTpResidencia(rs.getString("tp_residencial"));
 						contador.setValor(rs.getDouble("valor"));
@@ -82,11 +83,11 @@ public class CotadorDAO {
 				return contador;
 			}
 
-			public void delete(int id) {
-				String sql = "delete from contador where id=?";
+			public void delete(String cpf) {
+				String sql = "delete from contador where cpf=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
-					stmt.setLong(1, id);
+					stmt.setString(1, cpf);
 					stmt.execute();
 					stmt.close();
 				} catch (SQLException e) {
@@ -95,13 +96,13 @@ public class CotadorDAO {
 			}
 
 			public void update(Cotador contador) {
-				String sql = "update contador set nome=? , tp_residencial =? , valor=? where id=?";
+				String sql = "update contador set nome=? , tp_residencial =? , valor=? where cpf=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					stmt.setString(1, contador.getNome());
 					stmt.setString(2, contador.getTpResidencia());
 				    stmt.setDouble(3, contador.getValor());
-					stmt.setLong(4, contador.getId());
+					stmt.setString(4, contador.getCpf());
 
 					stmt.execute();
 					stmt.close();

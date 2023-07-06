@@ -4,9 +4,7 @@ import java.sql.Date;
 
 public class Cotador {
 
-	private int id;
-	private String nome;
-	private String tpResidencia;
+	private String nome, cpf, tpResidencia;
 	private Double valor;
 	private Date dataCadastro;
 	
@@ -47,12 +45,14 @@ public class Cotador {
 		this.valor = valor;
 	}
 
-	public int getId() {
-		return id;
+	
+
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public Date getDataCadastro() {
