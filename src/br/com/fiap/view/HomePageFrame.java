@@ -78,9 +78,9 @@ public class HomePageFrame extends JFrame {
     }
 
     private void calcular() {
-        ContadorFrame contador;
+        CotadorFrame contador;
         try {
-            contador = new ContadorFrame();
+            contador = new CotadorFrame();
             contador.setVisible(true);
         } catch (SQLException e) {
             e.printStackTrace();

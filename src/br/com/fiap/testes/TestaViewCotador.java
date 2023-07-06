@@ -1,17 +1,15 @@
 package br.com.fiap.testes;
 
 import java.sql.SQLException;
-
 import javax.swing.JFrame;
-
-import br.com.fiap.view.ContadorFrame;
+import br.com.fiap.view.CotadorFrame;
 
 public class TestaViewCotador {
 
 	public static void main(String[] args) {
-		ContadorFrame frame = null;
+		CotadorFrame frame = null;
 		try {
-			frame = new ContadorFrame();
+			frame = new CotadorFrame();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
