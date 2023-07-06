@@ -1,11 +1,9 @@
 package br.com.fiap.testes;
 
 import java.sql.SQLException;
-
 import javax.swing.JFrame;
-
 import br.com.fiap.view.ClienteFrame;
-import br.com.fiap.view.ContadorFrame;
+import br.com.fiap.view.CotadorFrame;
 
 public class TestaViewCliente {
 
