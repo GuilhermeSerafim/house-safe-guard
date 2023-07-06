@@ -1,89 +1,97 @@
 package br.com.fiap.view;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import br.com.fiap.model.Cotador;
+
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.border.Border;
+import br.com.fiap.view.CotadorFrame;
 
 public class HomePageFrame extends JFrame {
 
-    private JButton botaoEntrar;
-    private JButton botaoCadastrar;
-    private JButton botaoCalcular;
+	public HomePageFrame() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Exemplo de JFrame");
+		setSize(1200, 700);
+		setLocationRelativeTo(null);
 
-    public HomePageFrame() {
-        Container container = getContentPane();
-        setLayout(null);
-        container.setBackground(Color.LIGHT_GRAY);
+		Container container = getContentPane();
+		container.setBackground(new Color(20, 129, 99));
 
-        botaoEntrar = new JButton("Entrar");
-        botaoCadastrar = new JButton("Cadastrar");
-        botaoCalcular = new JButton("Cotação");
+		JPanel painel = new JPanel();
+		painel.setBackground(new Color(171, 184, 195));
+		painel.setLayout(new GridBagLayout());
+		container.add(painel);
 
-        botaoEntrar.setBounds(100, 50, 200, 30);
-        botaoCadastrar.setBounds(100, 100, 200, 30);
-        botaoCalcular.setBounds(100, 150, 200, 30);
+		JLabel labelBemVindo = new JLabel("Bem-vindo");
+		labelBemVindo.setFont(new Font("Arial", Font.BOLD, 24));
+		labelBemVindo.setForeground(Color.WHITE);
 
-        Color borderColor = new Color(0, 0, 255); // Cor azul
-        Border border = BorderFactory.createLineBorder(borderColor);
-        
-        botaoEntrar.setBorder(border);
-        botaoCadastrar.setBorder(border);
-        botaoCalcular.setBorder(border);
+		JButton botaoEntrar = new JButton("Entrar");
+		botaoEntrar.setPreferredSize(new Dimension(200, 30));
+		botaoEntrar.setBackground(new Color(113, 206, 126));
+		botaoEntrar.setForeground(Color.WHITE);
+		botaoEntrar.setFont(new Font("Arial", Font.BOLD, 14));
 
-        container.add(botaoEntrar);
-        container.add(botaoCadastrar);
-        container.add(botaoCalcular);
+		JButton botaoCotacao = new JButton("Cotação");
+		botaoCotacao.setPreferredSize(new Dimension(200, 30));
+		botaoCotacao.setBackground(new Color(113, 206, 126));
+		botaoCotacao.setForeground(Color.WHITE);
+		botaoCotacao.setFont(new Font("Arial", Font.BOLD, 14));
 
-        setSize(400, 250);
-        setVisible(true);
-        setLocationRelativeTo(null);
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.insets = new Insets(10, 0, 10, 0);
+		painel.add(labelBemVindo, gbc);
 
-        botaoEntrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                entrar();
-            }
-        });
+		gbc.gridy = 1;
+		painel.add(botaoEntrar, gbc);
 
-        botaoCadastrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cadastrar();
-            }
-        });
+		gbc.gridy = 2;
+		painel.add(botaoCotacao, gbc);
 
-        botaoCalcular.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                calcular();
-            }
-        });
-    }
+		setVisible(true);
 
-    private void entrar() {
-        JOptionPane.showMessageDialog(this, "Ação do botão 'Entrar' ainda não foi implementada.");
-    }
+		botaoEntrar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				entrar();
+			}
+		});
 
-    private void cadastrar() {
-        ClienteFrame cliente = new ClienteFrame();
-        cliente.setVisible(true);
-    }
+		botaoCotacao.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cotacao();
+			}
+		});
+	}
 
-    private void calcular() {
-        CotadorFrame contador;
-        try {
-            contador = new CotadorFrame();
-            contador.setVisible(true);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+	private void entrar() {
+		EntrarFrame entrar = new EntrarFrame();
+		entrar.setVisible(true);
+	}
+
+	private void cotacao() {
+		CotadorFrame contador;
+		try {
+			contador = new CotadorFrame();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

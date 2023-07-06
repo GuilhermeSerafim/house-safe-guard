@@ -188,7 +188,7 @@ import br.com.fiap.repository.CotadorDAO;
 	        try {
 	        	
 	            for (Cotador cotador : cotadores) {
-	            	modelo.addRow(new Object[] { cotador.getId(), cotador.getNome(), cotador.getTpResidencia(), cotador.getValor()});
+	            	modelo.addRow(new Object[] { cotador.getNome(), cotador.getTpResidencia(), cotador.getValor()});
 	           
 	            }
 	        } catch (Exception e) {
