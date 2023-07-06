@@ -1,9 +1,12 @@
 package br.com.fiap.view;
 
 import java.awt.Color;
+
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,11 +16,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 
 import br.com.fiap.model.Cliente;
 import br.com.fiap.util.CriptografiaUtils;
 
 public class ClienteFrame extends JFrame {
+	 JFrame frame = new JFrame("Exemplo de Fundo de Cor");
 
     private JLabel labelNome, labelCPF, labelEmail, labelCEP, labelSenha, labelTelefone, labelDataNascimento;
     private JTextField textoNome, textoCPF, textoEmail, textoCEP, textoSenha, textoTelefone, textoDataNascimento;
@@ -25,31 +32,49 @@ public class ClienteFrame extends JFrame {
 
     public ClienteFrame() {
         Container container = getContentPane();
-        setLayout(null);
-
+        getContentPane().setLayout(null);
+        
+        
+       
+        
+  
         labelNome = new JLabel("Nome");
+        labelNome.setForeground(new Color(153, 255, 153));
+        labelNome.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 13));
         labelCPF = new JLabel("CPF");
+        labelCPF.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 13));
         labelEmail = new JLabel("Email");
+        labelEmail.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 13));
         labelCEP = new JLabel("CEP");
+        labelCEP.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 13));
         labelSenha = new JLabel("Senha");
+        labelSenha.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 13));
         labelTelefone = new JLabel("Telefone");
+        labelTelefone.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 13));
         labelDataNascimento = new JLabel("Data de Nascimento");
+        labelDataNascimento.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 13));
 
-        labelNome.setBounds(10, 10, 100, 15);
-        labelCPF.setBounds(10, 40, 100, 15);
-        labelEmail.setBounds(10, 70, 100, 15);
-        labelCEP.setBounds(10, 100, 100, 15);
-        labelSenha.setBounds(10, 130, 100, 15);
-        labelTelefone.setBounds(10, 160, 100, 15);
-        labelDataNascimento.setBounds(10, 190, 150, 15);
-
-        labelNome.setForeground(Color.BLACK);
-        labelCPF.setForeground(Color.BLACK);
-        labelEmail.setForeground(Color.BLACK);
-        labelCEP.setForeground(Color.BLACK);
-        labelSenha.setForeground(Color.BLACK);
-        labelTelefone.setForeground(Color.BLACK);
-        labelDataNascimento.setForeground(Color.BLACK);
+        labelNome.setBounds(10, 0, 140, 40);
+        labelCPF.setBounds(10, 42, 66, 15);
+        labelEmail.setBounds(10, 68, 100, 27);
+        labelCEP.setBounds(10, 94, 93, 27);
+        labelSenha.setBounds(10, 132, 100, 15);
+        labelTelefone.setBounds(10, 166, 100, 15);
+        labelDataNascimento.setBounds(14, 192, 150, 15);
+        
+  
+        container.setBackground(new Color(20, 129, 99));
+       
+       JPanel painel = new JPanel ();
+       painel.setBackground(new Color (255,255,255));
+       painel.setLayout(new GridBagLayout());
+       container.add(painel);
+        labelCPF.setForeground(new Color(153, 255, 153));
+        labelEmail.setForeground(new Color(153, 255, 153));
+        labelCEP.setForeground(new Color(153, 255, 153));
+        labelSenha.setForeground(new Color(153, 255, 153));
+        labelTelefone.setForeground(new Color(153, 255, 153));
+        labelDataNascimento.setForeground(new Color(153, 255, 153));
 
         container.add(labelNome);
         container.add(labelCPF);
@@ -67,7 +92,7 @@ public class ClienteFrame extends JFrame {
         textoTelefone = new JTextField();
         textoDataNascimento = new JTextField();
 
-        textoNome.setBounds(160, 10, 200, 20);
+        textoNome.setBounds(160, 12, 200, 20);
         textoCPF.setBounds(160, 40, 200, 20);
         textoEmail.setBounds(160, 70, 200, 20);
         textoCEP.setBounds(160, 100, 200, 20);
@@ -91,6 +116,11 @@ public class ClienteFrame extends JFrame {
 
         container.add(botaoSalvar);
         container.add(botaoLimpar);
+        
+        JLabel lblNewLabel = new JLabel("Nome");
+        lblNewLabel.setIcon(new ImageIcon(ClienteFrame.class.getResource("/br/com/fiap/view/fundo2.jpg")));
+        lblNewLabel.setBounds(-195, 0, 603, 629);
+        getContentPane().add(lblNewLabel);
 
         setSize(400, 300);
         setVisible(true);
