@@ -19,17 +19,17 @@ public class ClienteDAO {
 				}
 
 				public void insert(Cliente cliente) {
-					String sql = "insert into Cliente(cpf, nm_completo, email,cep,telefone,dt_nasc,dataCadastro, senha) values (?,?,?,?,?,?,?,?)";
+					String sql = "insert into Cliente(cpf, nm_completo,email,telefone,cep,senha,dt_nasc,dataCadastro) values (?,?,?,?,?,?,?,?)";
 					try {
 						PreparedStatement stmt = conexao.prepareStatement(sql);
 						stmt.setString(1, cliente.getCpf()); 
 						stmt.setString(2, cliente.getNm_completo()); 
 						stmt.setString(3, cliente.getEmail());
-						stmt.setString(4, cliente.getCep());
-						stmt.setString(5, cliente.getTelefone());
-						stmt.setDate(6,cliente.getDataNascimento());
-						stmt.setDate(7,cliente.getDataCadastro());
-						stmt.setString(8, cliente.getSenha());
+						stmt.setString(4, cliente.getTelefone());
+						stmt.setString(5, cliente.getCep());
+						stmt.setString(6, cliente.getSenha());
+						stmt.setDate(7,cliente.getDataNascimento());
+						stmt.setDate(8,cliente.getDataCadastro());
 
 						stmt.execute(); 
 						stmt.close();
