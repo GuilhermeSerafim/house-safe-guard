@@ -19,16 +19,17 @@ public class ClienteDAO {
 				}
 
 				public void insert(Cliente cliente) {
-					String sql = "insert into cliente(nm_completo,cpf,email,cep,telefone,dt_nasc,senha) values (?,?,?,?,?,?,?)";
+					String sql = "insert into Cliente(cpf, nm_completo, email,cep,telefone,dt_nasc,dataCadastro, senha) values (?,?,?,?,?,?,?,?)";
 					try {
 						PreparedStatement stmt = conexao.prepareStatement(sql);
-						stmt.setString(1, cliente.getNm_completo()); 
-						stmt.setString(2, cliente.getCpf()); 
+						stmt.setString(1, cliente.getCpf()); 
+						stmt.setString(2, cliente.getNm_completo()); 
 						stmt.setString(3, cliente.getEmail());
 						stmt.setString(4, cliente.getCep());
 						stmt.setString(5, cliente.getTelefone());
-						stmt.setDate(6, cliente.getDataNascimento());
-						stmt.setString(7, cliente.getSenha());
+						stmt.setDate(6,cliente.getDataNascimento());
+						stmt.setDate(7,cliente.getDataCadastro());
+						stmt.setString(8, cliente.getSenha());
 
 						stmt.execute(); 
 						stmt.close();
@@ -39,19 +40,20 @@ public class ClienteDAO {
 
 				public List<Cliente> selectAll() {
 					List<Cliente> clientes = new ArrayList<Cliente>();
-					String sql = "select * from cliente order by nome";
+					String sql = "select * from cliente order by nm_completo";
 					try {
 						PreparedStatement stmt = conexao.prepareStatement(sql);
 						ResultSet rs = stmt.executeQuery();
 
 						while (rs.next()) {
 							Cliente cliente = new Cliente();
-							cliente.setNm_completo(rs.getString("nm_completo"));
 							cliente.setCpf(rs.getString("cpf"));
+							cliente.setNm_completo(rs.getString("nm_completo"));
 							cliente.setEmail(rs.getString("email"));
 							cliente.setTelefone(rs.getString("telefone"));
 							cliente.setCep(rs.getString("cep"));
 							cliente.setSenha(rs.getString("senha"));
+							cliente.setDataNascimento(rs.getDate("dt_nasc"));
 							cliente.setDataCadastro(rs.getDate("dataCadastro"));
 
 							clientes.add(cliente);
@@ -64,17 +66,17 @@ public class ClienteDAO {
 					return clientes;
 				}
 
-				public Cliente selectById(int id) {
+				public Cliente selectById(String cpf) {
 					Cliente cliente = null;
-					String sql = "select * from cliente where id=?";
+					String sql = "select * from cliente where cpf=?";
 					try {
 						PreparedStatement stmt = conexao.prepareStatement(sql);
-						stmt.setInt(1, id);
+						stmt.setString(1, cpf);
 						ResultSet rs = stmt.executeQuery();
 						while (rs.next()) {
 							cliente = new Cliente ();
-							cliente.setNm_completo(rs.getString("nm_completo"));
 							cliente.setCpf(rs.getString("cpf"));
+							cliente.setNm_completo(rs.getString("nm_completo"));
 							cliente.setEmail(rs.getString("email"));
 							cliente.setTelefone(rs.getString("telefone"));
 							cliente.setCep(rs.getString("cep"));
@@ -89,11 +91,11 @@ public class ClienteDAO {
 					return cliente;
 				}
 
-				public void delete(int id) {
-					String sql = "delete from cliente where id=?";
+				public void delete(String cpf) {
+					String sql = "delete from cliente where cpf=?";
 					try {
 						PreparedStatement stmt = conexao.prepareStatement(sql);
-						stmt.setLong(1, id);
+						stmt.setString(1, cpf);
 						stmt.execute();
 						stmt.close();
 					} catch (SQLException e) {
@@ -102,7 +104,7 @@ public class ClienteDAO {
 				}
 
 				public void update(Cliente cliente) {
-					String sql = "update cliente set nm_completo = ?, cpf=? , email=? , telefone=?, cep=? , senha=? , dt_nasc=? where id=?";
+					String sql = "update cliente set nm_completo = ?, email=? , telefone=?, cep=? , senha=? , dt_nasc=? where cpf=?";
 					try {
 						PreparedStatement stmt = conexao.prepareStatement(sql);
 						stmt.setString(1, cliente.getNm_completo()); 

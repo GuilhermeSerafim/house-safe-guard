@@ -8,25 +8,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.fiap.connection.ConnectionFactory;
-import br.com.fiap.model.Contador;
+import br.com.fiap.model.Cotador;
 
-public class ContadorDAO {
+public class CotadorDAO {
 	
 
 	      private Connection conexao;
 
-			public ContadorDAO() throws SQLException {
+			public CotadorDAO() throws SQLException {
 				this.conexao = ConnectionFactory.conectar();
 			}
 
-			public void insert(Contador contador ) {
-				String sql = "insert into contador(nome,tp_residencia,valor,data) values (?,?,?,?)";
+			public void insert(Cotador contador ) {
+				String sql = "insert into cotador(cpf,nome,tp_residencial,valor,dataCadastro) values (?,?,?,?,?)";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
-					stmt.setString(1, contador.getNome()); 
-					stmt.setString(2, contador.getTpResidencia());
-					stmt.setDouble(3, contador.getValor());
-					stmt.setDate(4, contador.getDataCadastro());
+					stmt.setString(1, contador.getCpf()); 
+					stmt.setString(2, contador.getNome()); 
+					stmt.setString(3, contador.getTpResidencia());
+					stmt.setDouble(4, contador.getValor());
+					stmt.setDate(5, contador.getDataCadastro());
 					stmt.execute(); 
 					stmt.close();
 				} catch (SQLException e) {
@@ -34,18 +35,18 @@ public class ContadorDAO {
 				}
 			}
 
-			public List<Contador> selectAll() {
-				List<Contador> contadores = new ArrayList<Contador>();
-				String sql = "select * from contador order by nome";
+			public List<Cotador> selectAll() {
+				List<Cotador> contadores = new ArrayList<Cotador>();
+				String sql = "select * from cotador order by nome";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					ResultSet rs = stmt.executeQuery();
 
 					while (rs.next()) {
-						Contador contador = new Contador();
-						contador.setId(rs.getInt("id"));
+						Cotador contador = new Cotador();
+						contador.setCpf(rs.getString("cpf"));
 						contador.setNome(rs.getString("nome"));
-						contador.setTpResidencia(rs.getString("tp_residencia"));
+						contador.setTpResidencia(rs.getString("tp_residencial"));
 						contador.setValor(rs.getDouble("valor"));
 						contador.setDataCadastro(rs.getDate("dataCadastro"));
 
@@ -59,18 +60,18 @@ public class ContadorDAO {
 				return contadores;
 			}
 
-			public Contador selectById(int id) {
-				Contador contador = null;
-				String sql = "select * from contador where id=?";
+			public Cotador selectByCpf(String cpf) {
+				Cotador contador = null;
+				String sql = "select * from cotador where cpf=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
-					stmt.setInt(1, id);
+					stmt.setString(1, cpf);
 					ResultSet rs = stmt.executeQuery();
 					while (rs.next()) {
-						contador = new Contador();
-						contador.setId(rs.getInt("id"));
+						contador = new Cotador();
+						contador.setCpf(rs.getString("cpf"));
 						contador.setNome(rs.getString("nome"));
-						contador.setTpResidencia(rs.getString("tp_residencia"));
+						contador.setTpResidencia(rs.getString("tp_residencial"));
 						contador.setValor(rs.getDouble("valor"));
 						contador.setDataCadastro(rs.getDate("dataCadastro"));
 					}
@@ -82,11 +83,11 @@ public class ContadorDAO {
 				return contador;
 			}
 
-			public void delete(int id) {
-				String sql = "delete from contador where id=?";
+			public void delete(String cpf) {
+				String sql = "delete from cotador where cpf=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
-					stmt.setLong(1, id);
+					stmt.setString(1, cpf);
 					stmt.execute();
 					stmt.close();
 				} catch (SQLException e) {
@@ -94,14 +95,14 @@ public class ContadorDAO {
 				}
 			}
 
-			public void update(Contador contador) {
-				String sql = "update contador set nome=? , tp_residencia =? , valor=? where id=?";
+			public void update(Cotador contador) {
+				String sql = "update cotador set nome=? , tp_residencial =? , valor=? where cpf=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					stmt.setString(1, contador.getNome());
 					stmt.setString(2, contador.getTpResidencia());
 				    stmt.setDouble(3, contador.getValor());
-					stmt.setLong(4, contador.getId());
+					stmt.setString(4, contador.getCpf());
 
 					stmt.execute();
 					stmt.close();
