@@ -1,4 +1,4 @@
-package br.com.fiap.view;
+package br.com.fiap.model;
 
 public interface Residencia {
 

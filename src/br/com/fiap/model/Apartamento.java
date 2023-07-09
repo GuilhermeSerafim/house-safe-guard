@@ -1,5 +1,4 @@
 package br.com.fiap.model;
-import br.com.fiap.view.Residencia;
 
 public class Apartamento implements Residencia{
 

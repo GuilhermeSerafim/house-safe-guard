@@ -1,11 +1,6 @@
-package br.com.fiap.view;
+package br.com.fiap.model;
 
 import java.util.ArrayList;
-
-import br.com.fiap.model.Apartamento;
-import br.com.fiap.model.Casa;
-import br.com.fiap.model.Condominio;
-import br.com.fiap.model.Cotador;
 
 public interface CotCalcular {
 	
