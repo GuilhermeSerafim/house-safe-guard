@@ -36,6 +36,7 @@ public class CotadorFrame {
                     CotadorFrame window = new CotadorFrame();
                     window.frame.setVisible(true);
                     window.frame.setLocationRelativeTo(null);
+                    window.frame.requestFocusInWindow();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

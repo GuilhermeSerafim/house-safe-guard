@@ -364,7 +364,10 @@ public class SegurosFrame {
 		GradientButton grdntbtnProsseguir_1_1 = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 20, 20);
 		grdntbtnProsseguir_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				AssistenciaFrame assistencia = new AssistenciaFrame();
+                assistencia.frame.setVisible(true);
+                frame.dispose();
+                assistencia.frame.setLocationRelativeTo(null);
 			}
 		});
 		grdntbtnProsseguir_1_1.setText("ESCOLHER");
@@ -375,6 +378,14 @@ public class SegurosFrame {
 		frame.getContentPane().add(grdntbtnProsseguir_1_1);
 		
 		GradientButton grdntbtnProsseguir_1_1_1 = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 20, 20);
+		grdntbtnProsseguir_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AssistenciaFrame assistencia = new AssistenciaFrame();
+                assistencia.frame.setVisible(true);
+                frame.dispose();
+                assistencia.frame.setLocationRelativeTo(null);
+			}
+		});
 		grdntbtnProsseguir_1_1_1.setText("ESCOLHER");
 		grdntbtnProsseguir_1_1_1.setForeground(Color.WHITE);
 		grdntbtnProsseguir_1_1_1.setFont(new Font("Segoe UI", Font.BOLD, 14));
@@ -383,6 +394,14 @@ public class SegurosFrame {
 		frame.getContentPane().add(grdntbtnProsseguir_1_1_1);
 		
 		GradientButton grdntbtnProsseguir_1_1_2 = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 20, 20);
+		grdntbtnProsseguir_1_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AssistenciaFrame assistencia = new AssistenciaFrame();
+                assistencia.frame.setVisible(true);
+                frame.dispose();
+                assistencia.frame.setLocationRelativeTo(null);
+			}
+		});
 		grdntbtnProsseguir_1_1_2.setText("ESCOLHER");
 		grdntbtnProsseguir_1_1_2.setForeground(Color.WHITE);
 		grdntbtnProsseguir_1_1_2.setFont(new Font("Segoe UI", Font.BOLD, 14));

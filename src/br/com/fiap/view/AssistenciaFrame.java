@@ -69,6 +69,10 @@ public class AssistenciaFrame {
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				SegurosFrame seguros = new SegurosFrame();
+                seguros.frame.setVisible(true);
+                frame.dispose();
+                seguros.frame.setLocationRelativeTo(null);
 			}
 		});
 		lblNewLabel_2.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/previous (1).png")));
@@ -202,6 +206,13 @@ public class AssistenciaFrame {
 		GradientButton grdntbtnProsseguir_1_1 = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 20, 20);
 		grdntbtnProsseguir_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				AssistenciaFrame x = null;
+				CadastroFrame cadastro = new CadastroFrame();
+                cadastro.frame.setVisible(true);
+                frame.dispose();
+                cadastro.frame.setLocationRelativeTo(null);
+                frame.requestFocusInWindow();
+                x.frame.requestFocusInWindow();
 			}
 		});
 		grdntbtnProsseguir_1_1.setText("ESCOLHER");
@@ -219,6 +230,15 @@ public class AssistenciaFrame {
 		frame.getContentPane().add(lblNewLabel_5);
 		
 		GradientButton grdntbtnProsseguir_1_1_1 = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 20, 20);
+		grdntbtnProsseguir_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CadastroFrame cadastro = new CadastroFrame();
+                cadastro.frame.setVisible(true);
+                frame.dispose();
+                cadastro.frame.setLocationRelativeTo(null);
+                frame.requestFocusInWindow();
+			}
+		});
 		grdntbtnProsseguir_1_1_1.setText("ESCOLHER");
 		grdntbtnProsseguir_1_1_1.setForeground(Color.WHITE);
 		grdntbtnProsseguir_1_1_1.setFont(new Font("Segoe UI", Font.BOLD, 14));
@@ -236,7 +256,11 @@ public class AssistenciaFrame {
 		GradientButton grdntbtnProsseguir_1_1_2 = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 20, 20);
 		grdntbtnProsseguir_1_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				CadastroFrame cadastro = new CadastroFrame();
+                cadastro.frame.setVisible(true);
+                frame.dispose();
+                cadastro.frame.setLocationRelativeTo(null);
+                frame.requestFocusInWindow();
 			}
 		});
 		grdntbtnProsseguir_1_1_2.setText("ESCOLHER");
