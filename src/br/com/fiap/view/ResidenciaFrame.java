@@ -40,6 +40,7 @@ public class ResidenciaFrame {
 
     private void initialize() {
         frame = new JFrame();
+        frame.getContentPane().setBackground(Color.WHITE);
         frame.setUndecorated(true);
         frame.setBounds(100, 100, 730, 420);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
