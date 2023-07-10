@@ -3,19 +3,15 @@ package br.com.fiap.view;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class HomeFrame {
 
@@ -48,9 +44,9 @@ public class HomeFrame {
 		GradientButton btnEntrar = new GradientButton("ENTRAR", new Color(0x23c5ae), new Color(0x19a38f), 45, 225, 5, 6);
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				EntrarFrame entrar = new EntrarFrame(); // Crie uma instância da classe EntrarFrame
-		        entrar.frame.setVisible(true); // Defina a visibilidade da janela EntrarFrame como true
-		        frame.dispose();
+				EntrarFrame entrar = new EntrarFrame();
+		        entrar.frame.setVisible(true);
+		        frame.dispose(); 
 		        entrar.frame.setLocationRelativeTo(null);
 			}
 		});
