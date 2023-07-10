@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+//Não vamos usar essa classe por enquanto
 public class ResidenciaFrame {
 
     JFrame frame;

@@ -73,11 +73,11 @@ public class EntrarFrame {
 			public void mouseDragged(MouseEvent e) {
 			}
 		});
-		lblNewLabel_2.setBounds(-92, 0, 513, 447);
+		lblNewLabel_2.setBounds(-92, 0, 418, 447);
 		lblNewLabel_2.setIcon(new ImageIcon(EntrarFrame.class.getResource("/resources/Black Coconut Tree Logo.png")));
 		panel.add(lblNewLabel_2);
 		
-		GradientButton button = new GradientButton("SIMULE E CONTRATE", new Color(0x23c5ae), new Color(0x19a38f), 45, 225, 5, 6);
+		GradientButton button = new GradientButton("SIMULE E CONTRATE", new Color(0x23c5ae), new Color(0x19a38f), 45, 225, 5, 20);
 		button.setText("ENTRAR");
 		button.setBounds(395, 318, 283, 43);
 		frame.getContentPane().add(button);

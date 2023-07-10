@@ -8,6 +8,10 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class AssistenciaFrame {
 
@@ -43,6 +47,7 @@ public class AssistenciaFrame {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.WHITE);
 		frame.setUndecorated(true);
 		frame.setBounds(100, 100, 729, 420);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,11 +66,22 @@ public class AssistenciaFrame {
 		frame.getContentPane().add(lblNewLabel_1_1_2);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		lblNewLabel_2.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/previous (1).png")));
 		lblNewLabel_2.setBounds(598, 0, 66, 60);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.exit(0);
+			}
+		});
 		lblNewLabel_1.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/close (1).png")));
 		lblNewLabel_1.setBounds(674, 4, 55, 50);
 		frame.getContentPane().add(lblNewLabel_1);
@@ -112,113 +128,122 @@ public class AssistenciaFrame {
 		frame.getContentPane().add(lblNewLabel_3_2_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Chaveiro");
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3.setBounds(57, 158, 152, 14);
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3.setBounds(108, 158, 101, 14);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Encanador");
-		lblNewLabel_3_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_1.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_1.setBounds(57, 182, 152, 14);
+		lblNewLabel_3_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_1.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_1.setBounds(108, 186, 101, 14);
 		frame.getContentPane().add(lblNewLabel_3_1);
 		
 		JLabel lblNewLabel_3_3 = new JLabel("Eletricista");
-		lblNewLabel_3_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_3.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_3.setBounds(57, 206, 152, 14);
+		lblNewLabel_3_3.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_3.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_3.setBounds(108, 217, 101, 14);
 		frame.getContentPane().add(lblNewLabel_3_3);
 		
 		JLabel lblNewLabel_3_4 = new JLabel("Desintupidor");
-		lblNewLabel_3_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_4.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_4.setBounds(57, 231, 152, 14);
+		lblNewLabel_3_4.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_4.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_4.setBounds(108, 247, 101, 16);
 		frame.getContentPane().add(lblNewLabel_3_4);
 		
 		JLabel lblNewLabel_3_5 = new JLabel("Vidraceiro");
-		lblNewLabel_3_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_5.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_5.setBounds(57, 256, 152, 14);
+		lblNewLabel_3_5.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_5.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_5.setBounds(108, 278, 101, 14);
 		frame.getContentPane().add(lblNewLabel_3_5);
 		
 		JLabel lblNewLabel_3_6 = new JLabel("Central de ajuda");
-		lblNewLabel_3_6.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_6.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_6.setBounds(57, 281, 152, 14);
+		lblNewLabel_3_6.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_6.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_6.setBounds(108, 312, 101, 14);
 		frame.getContentPane().add(lblNewLabel_3_6);
 		
 		JLabel lblNewLabel_3_7 = new JLabel("Linha Branca");
-		lblNewLabel_3_7.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_7.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_7.setBounds(275, 158, 178, 14);
+		lblNewLabel_3_7.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_7.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_7.setBounds(325, 158, 128, 14);
 		frame.getContentPane().add(lblNewLabel_3_7);
 		
 		JLabel lblNewLabel_3_1_1 = new JLabel("Linha Marrom");
-		lblNewLabel_3_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_1_1.setBounds(275, 183, 178, 14);
+		lblNewLabel_3_1_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_1_1.setBounds(325, 183, 128, 14);
 		frame.getContentPane().add(lblNewLabel_3_1_1);
 		
 		JLabel lblNewLabel_3_3_1 = new JLabel("Troca de Lâmpadas,");
-		lblNewLabel_3_3_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_3_1.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_3_1.setBounds(275, 209, 178, 14);
+		lblNewLabel_3_3_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_3_1.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_3_1.setBounds(325, 209, 128, 14);
 		frame.getContentPane().add(lblNewLabel_3_3_1);
 		
 		JLabel lblNewLabel_3_3_2 = new JLabel("Caçamba");
-		lblNewLabel_3_3_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_3_2.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_3_2.setBounds(519, 158, 151, 14);
+		lblNewLabel_3_3_2.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_3_2.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_3_2.setBounds(563, 158, 101, 16);
 		frame.getContentPane().add(lblNewLabel_3_3_2);
 		
 		JLabel lblNewLabel_3_4_2 = new JLabel("Instalação de Telas");
-		lblNewLabel_3_4_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_4_2.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_4_2.setBounds(519, 261, 151, 14);
+		lblNewLabel_3_4_2.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_4_2.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_4_2.setBounds(563, 272, 129, 17);
 		frame.getContentPane().add(lblNewLabel_3_4_2);
 		
 		JLabel lblNewLabel_3_5_2 = new JLabel("Descarte Inteligente");
-		lblNewLabel_3_5_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_5_2.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_5_2.setBounds(519, 286, 151, 14);
+		lblNewLabel_3_5_2.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_5_2.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_5_2.setBounds(563, 300, 122, 27);
 		frame.getContentPane().add(lblNewLabel_3_5_2);
 		
-		GradientButton grdntbtnProsseguir_1_1 = new GradientButton("SIMULE E CONTRATE", new Color(35, 197, 174), new Color(25, 163, 143), 45, 225, 20, 20);
+		GradientButton grdntbtnProsseguir_1_1 = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 20, 20);
+		grdntbtnProsseguir_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		grdntbtnProsseguir_1_1.setText("ESCOLHER");
 		grdntbtnProsseguir_1_1.setForeground(Color.WHITE);
 		grdntbtnProsseguir_1_1.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		grdntbtnProsseguir_1_1.setBackground(new Color(23, 197, 174));
-		grdntbtnProsseguir_1_1.setBounds(57, 366, 145, 43);
+		grdntbtnProsseguir_1_1.setBounds(50, 366, 159, 43);
 		frame.getContentPane().add(grdntbtnProsseguir_1_1);
 		
 		JLabel lblNewLabel_5 = new JLabel("R$6,00");
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5.setForeground(new Color(20, 193, 168));
 		lblNewLabel_5.setFont(new Font("Segoe UI", Font.BOLD, 20));
-		lblNewLabel_5.setBounds(57, 337, 145, 27);
+		lblNewLabel_5.setBounds(57, 337, 152, 27);
 		frame.getContentPane().add(lblNewLabel_5);
 		
-		GradientButton grdntbtnProsseguir_1_1_1 = new GradientButton("SIMULE E CONTRATE", new Color(35, 197, 174), new Color(25, 163, 143), 45, 225, 20, 20);
+		GradientButton grdntbtnProsseguir_1_1_1 = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 20, 20);
 		grdntbtnProsseguir_1_1_1.setText("ESCOLHER");
 		grdntbtnProsseguir_1_1_1.setForeground(Color.WHITE);
 		grdntbtnProsseguir_1_1_1.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		grdntbtnProsseguir_1_1_1.setBackground(new Color(23, 197, 174));
-		grdntbtnProsseguir_1_1_1.setBounds(300, 366, 145, 43);
+		grdntbtnProsseguir_1_1_1.setBounds(285, 366, 159, 43);
 		frame.getContentPane().add(grdntbtnProsseguir_1_1_1);
 		
 		JLabel lblNewLabel_5_1 = new JLabel("R$15,00");
 		lblNewLabel_5_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5_1.setForeground(new Color(20, 193, 168));
 		lblNewLabel_5_1.setFont(new Font("Segoe UI", Font.BOLD, 20));
-		lblNewLabel_5_1.setBounds(301, 337, 144, 27);
+		lblNewLabel_5_1.setBounds(275, 337, 178, 27);
 		frame.getContentPane().add(lblNewLabel_5_1);
 		
-		GradientButton grdntbtnProsseguir_1_1_2 = new GradientButton("SIMULE E CONTRATE", new Color(35, 197, 174), new Color(25, 163, 143), 45, 225, 20, 20);
+		GradientButton grdntbtnProsseguir_1_1_2 = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 20, 20);
+		grdntbtnProsseguir_1_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		grdntbtnProsseguir_1_1_2.setText("ESCOLHER");
 		grdntbtnProsseguir_1_1_2.setForeground(Color.WHITE);
 		grdntbtnProsseguir_1_1_2.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		grdntbtnProsseguir_1_1_2.setBackground(new Color(23, 197, 174));
-		grdntbtnProsseguir_1_1_2.setBounds(525, 366, 145, 43);
+		grdntbtnProsseguir_1_1_2.setBounds(520, 366, 159, 43);
 		frame.getContentPane().add(grdntbtnProsseguir_1_1_2);
 		
 		JLabel lblNewLabel_5_2 = new JLabel("R$24,00");
@@ -229,57 +254,57 @@ public class AssistenciaFrame {
 		frame.getContentPane().add(lblNewLabel_5_2);
 		
 		JLabel lblNewLabel_3_4_1_1 = new JLabel("Tomadas e");
-		lblNewLabel_3_4_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_4_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_4_1_1.setBounds(275, 225, 178, 14);
+		lblNewLabel_3_4_1_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_4_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_4_1_1.setBounds(325, 225, 128, 14);
 		frame.getContentPane().add(lblNewLabel_3_4_1_1);
 		
 		JLabel lblNewLabel_3_4_1_1_1 = new JLabel("Interruptores");
-		lblNewLabel_3_4_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_4_1_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_4_1_1_1.setBounds(275, 239, 178, 18);
+		lblNewLabel_3_4_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_4_1_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_4_1_1_1.setBounds(325, 239, 128, 18);
 		frame.getContentPane().add(lblNewLabel_3_4_1_1_1);
 		
 		JLabel lblNewLabel_3_3_1_1 = new JLabel("Instalação");
-		lblNewLabel_3_3_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_3_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_3_1_1.setBounds(275, 267, 178, 14);
+		lblNewLabel_3_3_1_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_3_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_3_1_1.setBounds(325, 267, 128, 14);
 		frame.getContentPane().add(lblNewLabel_3_3_1_1);
 		
 		JLabel lblNewLabel_3_4_1_1_2 = new JLabel("do Visor Óptico");
-		lblNewLabel_3_4_1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_4_1_1_2.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_4_1_1_2.setBounds(275, 281, 178, 14);
+		lblNewLabel_3_4_1_1_2.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_4_1_1_2.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_4_1_1_2.setBounds(325, 281, 128, 14);
 		frame.getContentPane().add(lblNewLabel_3_4_1_1_2);
 		
 		JLabel lblNewLabel_3_6_1_1 = new JLabel("Serviços gerais");
-		lblNewLabel_3_6_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_6_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_6_1_1.setBounds(275, 300, 178, 27);
+		lblNewLabel_3_6_1_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_6_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_6_1_1.setBounds(325, 300, 128, 27);
 		frame.getContentPane().add(lblNewLabel_3_6_1_1);
 		
 		JLabel lblNewLabel_3_3_1_2 = new JLabel("Limpeza de");
-		lblNewLabel_3_3_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_3_1_2.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_3_1_2.setBounds(519, 184, 151, 14);
+		lblNewLabel_3_3_1_2.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_3_1_2.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_3_1_2.setBounds(563, 188, 101, 14);
 		frame.getContentPane().add(lblNewLabel_3_3_1_2);
 		
 		JLabel lblNewLabel_3_4_1_1_3 = new JLabel("Ar Condicionado");
-		lblNewLabel_3_4_1_1_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_4_1_1_3.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_4_1_1_3.setBounds(519, 198, 151, 14);
+		lblNewLabel_3_4_1_1_3.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_4_1_1_3.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_4_1_1_3.setBounds(563, 202, 129, 14);
 		frame.getContentPane().add(lblNewLabel_3_4_1_1_3);
 		
 		JLabel lblNewLabel_3_3_1_3 = new JLabel("Instalação de");
-		lblNewLabel_3_3_1_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_3_1_3.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_3_1_3.setBounds(519, 223, 151, 14);
+		lblNewLabel_3_3_1_3.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_3_1_3.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_3_1_3.setBounds(563, 231, 101, 14);
 		frame.getContentPane().add(lblNewLabel_3_3_1_3);
 		
 		JLabel lblNewLabel_3_4_1_1_4 = new JLabel("Suporte de TV");
-		lblNewLabel_3_4_1_1_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_4_1_1_4.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblNewLabel_3_4_1_1_4.setBounds(519, 237, 151, 14);
+		lblNewLabel_3_4_1_1_4.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_3_4_1_1_4.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		lblNewLabel_3_4_1_1_4.setBounds(563, 245, 101, 20);
 		frame.getContentPane().add(lblNewLabel_3_4_1_1_4);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
@@ -289,86 +314,82 @@ public class AssistenciaFrame {
 		
 		JLabel lblNewLabel_6 = new JLabel("");
 		lblNewLabel_6.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/017-keychain.png")));
-		lblNewLabel_6.setBounds(67, 158, 36, 32);
+		lblNewLabel_6.setBounds(74, 149, 30, 32);
 		frame.getContentPane().add(lblNewLabel_6);
-		
-		JLabel lblNewLabel_6_6_2 = new JLabel("");
-		lblNewLabel_6_6_2.setBounds(529, 158, 46, 14);
-		frame.getContentPane().add(lblNewLabel_6_6_2);
 		
 		JLabel lblNewLabel_6_1 = new JLabel("");
 		lblNewLabel_6_1.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/016-plumber.png")));
-		lblNewLabel_6_1.setBounds(10, 157, 36, 32);
+		lblNewLabel_6_1.setBounds(74, 178, 30, 32);
 		frame.getContentPane().add(lblNewLabel_6_1);
 		
 		JLabel lblNewLabel_6_2 = new JLabel("");
 		lblNewLabel_6_2.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/010-electrician.png")));
-		lblNewLabel_6_2.setBounds(10, 188, 36, 32);
+		lblNewLabel_6_2.setBounds(74, 207, 30, 32);
 		frame.getContentPane().add(lblNewLabel_6_2);
 		
 		JLabel lblNewLabel_6_3 = new JLabel("");
 		lblNewLabel_6_3.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/015-plunger.png")));
-		lblNewLabel_6_3.setBounds(10, 231, 36, 32);
+		lblNewLabel_6_3.setBounds(74, 242, 30, 32);
 		frame.getContentPane().add(lblNewLabel_6_3);
 		
 		JLabel lblNewLabel_6_4 = new JLabel("");
 		lblNewLabel_6_4.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/014-glazier.png")));
-		lblNewLabel_6_4.setBounds(10, 266, 36, 32);
+		lblNewLabel_6_4.setBounds(74, 272, 24, 32);
 		frame.getContentPane().add(lblNewLabel_6_4);
 		
 		JLabel lblNewLabel_6_5 = new JLabel("");
 		lblNewLabel_6_5.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/013-customer-service.png")));
-		lblNewLabel_6_5.setBounds(10, 309, 36, 32);
+		lblNewLabel_6_5.setBounds(74, 302, 30, 32);
 		frame.getContentPane().add(lblNewLabel_6_5);
 		
 		JLabel lblNewLabel_6_6 = new JLabel("");
 		lblNewLabel_6_6.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/012-mechanic.png")));
-		lblNewLabel_6_6.setBounds(40, 115, 36, 32);
+		lblNewLabel_6_6.setBounds(285, 144, 30, 32);
 		frame.getContentPane().add(lblNewLabel_6_6);
 		
 		JLabel lblNewLabel_6_7 = new JLabel("");
 		lblNewLabel_6_7.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/011-construction.png")));
-		lblNewLabel_6_7.setBounds(40, 157, 36, 32);
+		lblNewLabel_6_7.setBounds(286, 178, 30, 32);
 		frame.getContentPane().add(lblNewLabel_6_7);
 		
 		JLabel lblNewLabel_6_8 = new JLabel("");
 		lblNewLabel_6_8.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/001-light-bulb.png")));
-		lblNewLabel_6_8.setBounds(40, 188, 36, 32);
+		lblNewLabel_6_8.setBounds(285, 215, 36, 32);
 		frame.getContentPane().add(lblNewLabel_6_8);
 		
 		JLabel lblNewLabel_6_9 = new JLabel("");
 		lblNewLabel_6_9.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/002-man.png")));
-		lblNewLabel_6_9.setBounds(40, 234, 36, 32);
+		lblNewLabel_6_9.setBounds(285, 265, 30, 32);
 		frame.getContentPane().add(lblNewLabel_6_9);
 		
 		JLabel lblNewLabel_6_10 = new JLabel("");
 		lblNewLabel_6_10.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/003-carpenter.png")));
-		lblNewLabel_6_10.setBounds(40, 266, 36, 32);
+		lblNewLabel_6_10.setBounds(290, 298, 30, 32);
 		frame.getContentPane().add(lblNewLabel_6_10);
 		
 		JLabel lblNewLabel_6_11 = new JLabel("");
 		lblNewLabel_6_11.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/005-caminhao-basculante.png")));
-		lblNewLabel_6_11.setBounds(40, 312, 36, 32);
+		lblNewLabel_6_11.setBounds(529, 145, 30, 32);
 		frame.getContentPane().add(lblNewLabel_6_11);
 		
 		JLabel lblNewLabel_6_12 = new JLabel("");
 		lblNewLabel_6_12.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/009-service.png")));
-		lblNewLabel_6_12.setBounds(86, 312, 36, 32);
+		lblNewLabel_6_12.setBounds(529, 186, 36, 32);
 		frame.getContentPane().add(lblNewLabel_6_12);
 		
 		JLabel lblNewLabel_6_13 = new JLabel("");
 		lblNewLabel_6_13.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/006-monitor.png")));
-		lblNewLabel_6_13.setBounds(132, 312, 36, 32);
+		lblNewLabel_6_13.setBounds(529, 231, 30, 32);
 		frame.getContentPane().add(lblNewLabel_6_13);
 		
 		JLabel lblNewLabel_6_14 = new JLabel("");
 		lblNewLabel_6_14.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/007-computer-settings-interface-symbol-of-a-monitor-screen-with-gears.png")));
-		lblNewLabel_6_14.setBounds(163, 312, 36, 32);
+		lblNewLabel_6_14.setBounds(529, 265, 30, 32);
 		frame.getContentPane().add(lblNewLabel_6_14);
 		
 		JLabel lblNewLabel_6_15 = new JLabel("");
 		lblNewLabel_6_15.setIcon(new ImageIcon(AssistenciaFrame.class.getResource("/resources/008-discard.png")));
-		lblNewLabel_6_15.setBounds(209, 312, 36, 32);
+		lblNewLabel_6_15.setBounds(529, 300, 30, 32);
 		frame.getContentPane().add(lblNewLabel_6_15);
 	}
 }

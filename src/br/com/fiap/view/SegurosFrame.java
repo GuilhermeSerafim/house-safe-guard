@@ -61,10 +61,10 @@ public class SegurosFrame {
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ResidenciaFrame residencia = new ResidenciaFrame();
-		        residencia.frame.setVisible(true); 
+				CotadorFrame cotador = new CotadorFrame();
+		        cotador.frame.setVisible(true); 
 		        frame.dispose();
-		        residencia.frame.setLocationRelativeTo(null);
+		        cotador.frame.setLocationRelativeTo(null);
 			}
 		});
 		lblNewLabel_2.setIcon(new ImageIcon(SegurosFrame.class.getResource("/resources/previous (1).png")));
@@ -86,7 +86,7 @@ public class SegurosFrame {
 		lblNewLabel_1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1_2.setForeground(new Color(20, 129, 99));
 		lblNewLabel_1_1_2.setFont(new Font("Segoe UI", Font.BOLD, 20));
-		lblNewLabel_1_1_2.setBounds(183, 11, 316, 32);
+		lblNewLabel_1_1_2.setBounds(195, 11, 316, 32);
 		frame.getContentPane().add(lblNewLabel_1_1_2);
 		
 		GradientButton grdntbtnProsseguir = new GradientButton("SIMULE E CONTRATE", new Color(171, 184, 195), new Color(134, 165, 191), 45, 225, 20, 20);
@@ -259,7 +259,7 @@ public class SegurosFrame {
 		JLabel lblNewLabel_3_1_1_1_2 = new JLabel("Desp. Aluguel");
 		lblNewLabel_3_1_1_1_2.setForeground(new Color(0, 160, 137));
 		lblNewLabel_3_1_1_1_2.setFont(new Font("Segoe UI", Font.BOLD, 13));
-		lblNewLabel_3_1_1_1_2.setBounds(537, 247, 102, 14);
+		lblNewLabel_3_1_1_1_2.setBounds(537, 247, 102, 16);
 		frame.getContentPane().add(lblNewLabel_3_1_1_1_2);
 		
 		JLabel lblNewLabel_4_2_1_4 = new JLabel("R$5.000,00");
@@ -361,7 +361,7 @@ public class SegurosFrame {
 		lblNewLabel_4_3_1_1.setBounds(617, 138, 102, 14);
 		frame.getContentPane().add(lblNewLabel_4_3_1_1);
 		
-		GradientButton grdntbtnProsseguir_1_1 = new GradientButton("SIMULE E CONTRATE", new Color(35, 197, 174), new Color(25, 163, 143), 45, 225, 20, 20);
+		GradientButton grdntbtnProsseguir_1_1 = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 20, 20);
 		grdntbtnProsseguir_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -371,23 +371,23 @@ public class SegurosFrame {
 		grdntbtnProsseguir_1_1.setForeground(Color.WHITE);
 		grdntbtnProsseguir_1_1.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		grdntbtnProsseguir_1_1.setBackground(new Color(23, 197, 174));
-		grdntbtnProsseguir_1_1.setBounds(44, 366, 131, 43);
+		grdntbtnProsseguir_1_1.setBounds(21, 366, 181, 43);
 		frame.getContentPane().add(grdntbtnProsseguir_1_1);
 		
-		GradientButton grdntbtnProsseguir_1_1_1 = new GradientButton("SIMULE E CONTRATE", new Color(35, 197, 174), new Color(25, 163, 143), 45, 225, 20, 20);
+		GradientButton grdntbtnProsseguir_1_1_1 = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 20, 20);
 		grdntbtnProsseguir_1_1_1.setText("ESCOLHER");
 		grdntbtnProsseguir_1_1_1.setForeground(Color.WHITE);
 		grdntbtnProsseguir_1_1_1.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		grdntbtnProsseguir_1_1_1.setBackground(new Color(23, 197, 174));
-		grdntbtnProsseguir_1_1_1.setBounds(305, 366, 131, 43);
+		grdntbtnProsseguir_1_1_1.setBounds(255, 366, 229, 43);
 		frame.getContentPane().add(grdntbtnProsseguir_1_1_1);
 		
-		GradientButton grdntbtnProsseguir_1_1_2 = new GradientButton("SIMULE E CONTRATE", new Color(35, 197, 174), new Color(25, 163, 143), 45, 225, 20, 20);
+		GradientButton grdntbtnProsseguir_1_1_2 = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 20, 20);
 		grdntbtnProsseguir_1_1_2.setText("ESCOLHER");
 		grdntbtnProsseguir_1_1_2.setForeground(Color.WHITE);
 		grdntbtnProsseguir_1_1_2.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		grdntbtnProsseguir_1_1_2.setBackground(new Color(23, 197, 174));
-		grdntbtnProsseguir_1_1_2.setBounds(560, 366, 131, 43);
+		grdntbtnProsseguir_1_1_2.setBounds(537, 366, 182, 43);
 		frame.getContentPane().add(grdntbtnProsseguir_1_1_2);
 		
 		JLabel lblNewLabel_5 = new JLabel("R$12,00");
