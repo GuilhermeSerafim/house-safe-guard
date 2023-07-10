@@ -1,37 +1,26 @@
 package br.com.fiap.view;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.GradientPaint;
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.Button;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.JSeparator;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import java.awt.Point;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 public class HomeFrame {
 
-	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
+	JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -46,97 +35,98 @@ public class HomeFrame {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public HomeFrame() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setTitle("House SG");
+		frame.setBounds(100, 100, 729, 420);
 		frame.setUndecorated(true);
-		frame.getContentPane().setFont(new Font("Segoe UI", Font.BOLD, 36));
-		frame.setBackground(Color.WHITE);
-		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
-		panel.setBounds(0, 0, 336, 420);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
-		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(-92, 0, 513, 447);
-		lblNewLabel_2.setIcon(new ImageIcon(HomeFrame.class.getResource("/resources/Logo Tree Dev (2).png")));
-		panel.add(lblNewLabel_2);
-		GradientButton button = new GradientButton("SIMULE E CONTRATE", new Color(0x23c5ae), new Color(0x19a38f), 45, 225, 5, 6);
-		button.setText("ENTRAR");
-		button.setBounds(395, 322, 119, 43);
-		frame.getContentPane().add(button);
-		button.addActionListener(new ActionListener() {
-			//Ação do button
+
+		GradientButton btnEntrar = new GradientButton("ENTRAR", new Color(0x23c5ae), new Color(0x19a38f), 45, 225, 5, 6);
+		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(frame, "Você será redirecionado para a tela de CRUD");
+				EntrarFrame entrar = new EntrarFrame(); // Crie uma instância da classe EntrarFrame
+		        entrar.frame.setVisible(true); // Defina a visibilidade da janela EntrarFrame como true
+		        frame.dispose();
+		        entrar.frame.setLocationRelativeTo(null);
 			}
 		});
-		button.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		button.setForeground(Color.WHITE);
-		button.setBackground(new Color(23, 197, 174));
+		btnEntrar.setText("LOGIN");
+		btnEntrar.setForeground(Color.WHITE);
+		btnEntrar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnEntrar.setBackground(new Color(23, 197, 174));
+		btnEntrar.setBounds(541, 11, 128, 40);
+		frame.getContentPane().add(btnEntrar);
 		
-		textField = new JTextField();
-		textField.setBounds(395, 181, 283, 36);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(395, 216, 283, 2);
-		frame.getContentPane().add(separator);
-		
-		JLabel lblNewLabel = new JLabel("CPF");
-		lblNewLabel.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		lblNewLabel.setBounds(395, 156, 46, 14);
-		frame.getContentPane().add(lblNewLabel);
-		
-		JLabel lblSenha = new JLabel("SENHA");
-		lblSenha.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		lblSenha.setBounds(395, 228, 46, 14);
-		frame.getContentPane().add(lblSenha);
-		
-		JLabel lblNewLabel_1 = new JLabel("BEM-VINDO DE VOLTA");
-		lblNewLabel_1.setForeground(new Color(20, 129, 99));
-		lblNewLabel_1.setFont(new Font("Segoe UI", Font.BOLD, 20));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(420, 71, 230, 69);
-		frame.getContentPane().add(lblNewLabel_1);
-		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(395, 287, 283, 2);
-		frame.getContentPane().add(separator_1);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(395, 253, 283, 36);
-		frame.getContentPane().add(textField_1);
-		
-		GradientButton grdntbtnSair = new GradientButton("SIMULE E CONTRATE", new Color(35, 197, 174), new Color(25, 163, 143), 45, 225, 5, 6);
-		grdntbtnSair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				System.exit(0);
 			}
 		});
-		grdntbtnSair.setText("SAIR");
-		grdntbtnSair.setForeground(Color.WHITE);
-		grdntbtnSair.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		grdntbtnSair.setBackground(new Color(23, 197, 174));
-		grdntbtnSair.setBounds(560, 322, 119, 43);
-		frame.getContentPane().add(grdntbtnSair);
-		frame.setBounds(100, 100, 729, 420);
+		lblNewLabel.setIcon(new ImageIcon(HomeFrame.class.getResource("/resources/close (1).png")));
+		lblNewLabel.setBounds(679, 0, 50, 57);
+		frame.getContentPane().add(lblNewLabel);
+		
+		GradientPanel panel_1 = new GradientPanel(new Color(0xFFFFFF), new Color(0xFFFFFF));
+		frame.getContentPane().add(panel_1);
+		panel_1.setBounds(0, 0, 729, 420);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel_4 = new JLabel("com os nossos seguros residenciais.");
+		lblNewLabel_4.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		lblNewLabel_4.setBounds(22, 222, 350, 35);
+		panel_1.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("A House tem a solução financeira ideal para você!");
+		lblNewLabel_2_2.setBounds(22, 260, 443, 29);
+		panel_1.add(lblNewLabel_2_2);
+		lblNewLabel_2_2.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_2_2.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		
+		JLabel lblNewLabel_2 = new JLabel("Proteja o seu lar e a sua família");
+		lblNewLabel_2.setBounds(19, 190, 414, 29);
+		panel_1.add(lblNewLabel_2);
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_2.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		
+				GradientButton btnQueroFazer = new GradientButton("SIMULE E CONTRATE!", new Color(0x23c5ae), new Color(0x19a38f), 45, 225, 5, 6);
+				btnQueroFazer.setBounds(21, 337, 265, 45);
+				panel_1.add(btnQueroFazer);
+				btnQueroFazer.addActionListener(new ActionListener() {
+					// Ação para entrar na tela de cotação
+					public void actionPerformed(ActionEvent e) {
+						CotadorFrame cotador = new CotadorFrame(); // Crie uma instância da classe EntrarFrame
+				        cotador.frame.setVisible(true); // Defina a visibilidade da janela EntrarFrame como true
+				        frame.dispose();
+				        cotador.frame.setLocationRelativeTo(null);
+					}
+				});
+				btnQueroFazer.setForeground(Color.WHITE);
+				btnQueroFazer.setFont(new Font("Segoe UI", Font.BOLD, 14));
+				btnQueroFazer.setBackground(new Color(23, 197, 174));
+				
+				JLabel lblNewLabel_5 = new JLabel("");
+				lblNewLabel_5.setIcon(new ImageIcon(HomeFrame.class.getResource("/resources/imgHome2_resized_resized.png")));
+				lblNewLabel_5.setBounds(323, 106, 679, 303);
+				panel_1.add(lblNewLabel_5);
+				
+				JLabel lblNewLabel_1 = new JLabel("CONHEÇA A HOUSE SG");
+				lblNewLabel_1.setBounds(21, 100, 407, 84);
+				panel_1.add(lblNewLabel_1);
+				lblNewLabel_1.setForeground(new Color(20, 129, 99));
+				lblNewLabel_1.setFont(new Font("Segoe UI", Font.BOLD, 35));
+				
+				JLabel lblNewLabel_3 = new JLabel("");
+				lblNewLabel_3.setBounds(0, 0, 82, 73);
+				panel_1.add(lblNewLabel_3);
+				lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+				lblNewLabel_3.setIcon(new ImageIcon(HomeFrame.class.getResource("/resources/logohsg.png")));
+	
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
