@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 
 public class SegurosFrame {
 
-	private JFrame frame;
+	JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -26,7 +26,7 @@ public class SegurosFrame {
 				try {
 					SegurosFrame window = new SegurosFrame();
 					window.frame.setVisible(true);
-					 window.frame.setLocationRelativeTo(null);
+					window.frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -58,6 +58,15 @@ public class SegurosFrame {
 		frame.getContentPane().add(lblNewLabel_4_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ResidenciaFrame residencia = new ResidenciaFrame();
+		        residencia.frame.setVisible(true); 
+		        frame.dispose();
+		        residencia.frame.setLocationRelativeTo(null);
+			}
+		});
 		lblNewLabel_2.setIcon(new ImageIcon(SegurosFrame.class.getResource("/resources/previous (1).png")));
 		lblNewLabel_2.setBounds(598, -4, 66, 60);
 		frame.getContentPane().add(lblNewLabel_2);
@@ -388,14 +397,14 @@ public class SegurosFrame {
 		lblNewLabel_5.setBounds(44, 337, 131, 27);
 		frame.getContentPane().add(lblNewLabel_5);
 		
-		JLabel lblNewLabel_5_1 = new JLabel("R$12,00");
+		JLabel lblNewLabel_5_1 = new JLabel("R$20,00");
 		lblNewLabel_5_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5_1.setForeground(new Color(20, 193, 168));
 		lblNewLabel_5_1.setFont(new Font("Segoe UI", Font.BOLD, 20));
 		lblNewLabel_5_1.setBounds(305, 337, 131, 27);
 		frame.getContentPane().add(lblNewLabel_5_1);
 		
-		JLabel lblNewLabel_5_2 = new JLabel("R$12,00");
+		JLabel lblNewLabel_5_2 = new JLabel("R$14,00");
 		lblNewLabel_5_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5_2.setForeground(new Color(20, 193, 168));
 		lblNewLabel_5_2.setFont(new Font("Segoe UI", Font.BOLD, 20));

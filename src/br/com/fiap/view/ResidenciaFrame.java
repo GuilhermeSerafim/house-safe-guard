@@ -156,6 +156,14 @@ public class ResidenciaFrame {
         frame.getContentPane().add(lblNewLabel_6);
         
         GradientButton grdntbtnProsseguir = new GradientButton("SIMULE E CONTRATE", new Color(35, 197, 174), new Color(25, 163, 143), 45, 225, 5, 6);
+        grdntbtnProsseguir.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		SegurosFrame seguros = new SegurosFrame();
+		        seguros.frame.setVisible(true); 
+		        frame.dispose();
+		        seguros.frame.setLocationRelativeTo(null);
+        	}
+        });
         grdntbtnProsseguir.setText("PROSSEGUIR");
         grdntbtnProsseguir.setForeground(Color.WHITE);
         grdntbtnProsseguir.setFont(new Font("Segoe UI", Font.BOLD, 14));
