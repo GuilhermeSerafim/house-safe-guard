@@ -13,6 +13,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JSeparator;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CadastroFrame {
 
@@ -52,11 +55,6 @@ public class CadastroFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
-        JLabel lblNewLabel_2 = new JLabel("New label");
-        lblNewLabel_2.setIcon(new ImageIcon(CadastroFrame.class.getResource("/resources/Black Coconut Tree Logo.png")));
-        lblNewLabel_2.setBounds(-99, -8, 398, 447);
-        frame.getContentPane().add(lblNewLabel_2);
-
         JLabel lblNewLabel_1_1 = new JLabel("");
         lblNewLabel_1_1.addMouseListener(new MouseAdapter() {
         	@Override
@@ -84,34 +82,40 @@ public class CadastroFrame {
         frame.getContentPane().add(lblNewLabel_2_1);
 
         JLabel lblNewLabel_1 = new JLabel("Faça seu cadastro");
-        lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+        lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
         lblNewLabel_1.setForeground(new Color(20, 129, 99));
         lblNewLabel_1.setFont(new Font("Segoe UI", Font.BOLD, 25));
-        lblNewLabel_1.setBounds(378, 41, 297, 57);
+        lblNewLabel_1.setBounds(29, 190, 297, 57);
         frame.getContentPane().add(lblNewLabel_1);
 
         textField = new JTextField();
+        textField.setBorder(null);
         textField.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         textField.setForeground(Color.GRAY);
         textField.setText("Email");
         textField.setColumns(10);
-        textField.setBounds(430, 109, 200, 25);
+        textField.setBounds(29, 246, 200, 25);
         frame.getContentPane().add(textField);
 
         textField_1 = new JTextField();
+        textField_1.setBorder(null);
         textField_1.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         textField_1.setForeground(Color.GRAY);
-        textField_1.setText("Nome");
+        textField_1.setText("CPF");
         textField_1.setColumns(10);
-        textField_1.setBounds(431, 140, 200, 25);
+        textField_1.setBounds(29, 282, 200, 25);
         frame.getContentPane().add(textField_1);
 
         GradientButton button = new GradientButton("SIMULE E CONTRATE", new Color(35, 197, 174), new Color(25, 163, 143), 45, 225, 5, 20);
+        button.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
         button.setText("CADASTRAR");
         button.setForeground(Color.WHITE);
         button.setFont(new Font("Segoe UI", Font.BOLD, 14));
         button.setBackground(new Color(23, 197, 174));
-        button.setBounds(430, 318, 200, 43);
+        button.setBounds(29, 366, 200, 43);
         frame.getContentPane().add(button);
 
         JLabel lblNewLabel_1_1_1 = new JLabel("");
@@ -123,36 +127,90 @@ public class CadastroFrame {
         frame.getContentPane().add(lblNewLabel_2_1_1);
         
         textField_2 = new JTextField();
-        textField_2.setText("Nome");
+        textField_2.setBorder(null);
+        textField_2.setText("Telefone");
         textField_2.setForeground(Color.GRAY);
         textField_2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         textField_2.setColumns(10);
-        textField_2.setBounds(430, 171, 200, 25);
+        textField_2.setBounds(282, 282, 200, 25);
         frame.getContentPane().add(textField_2);
         
         textField_3 = new JTextField();
-        textField_3.setText("Nome");
+        textField_3.setBorder(null);
+        textField_3.setText("CEP");
         textField_3.setForeground(Color.GRAY);
         textField_3.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         textField_3.setColumns(10);
-        textField_3.setBounds(430, 202, 200, 25);
+        textField_3.setBounds(282, 246, 200, 25);
         frame.getContentPane().add(textField_3);
         
         textField_4 = new JTextField();
-        textField_4.setText("Nome");
+        textField_4.setBorder(null);
+        textField_4.setText("Data de Nascimento");
         textField_4.setForeground(Color.GRAY);
         textField_4.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         textField_4.setColumns(10);
-        textField_4.setBounds(430, 264, 200, 25);
+        textField_4.setBounds(282, 318, 200, 25);
         frame.getContentPane().add(textField_4);
         
         textField_5 = new JTextField();
-        textField_5.setText("Nome");
+        textField_5.setBorder(null);
+        textField_5.setText("Senha");
         textField_5.setForeground(Color.GRAY);
         textField_5.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         textField_5.setColumns(10);
-        textField_5.setBounds(430, 233, 200, 25);
+        textField_5.setBounds(29, 318, 200, 25);
         frame.getContentPane().add(textField_5);
+        
+        GradientPanel panel = new GradientPanel(new Color(162, 212, 141), new Color(0, 160, 137));
+        panel.setLayout(null);
+        panel.setBounds(0, 49, 778, 136);
+        frame.getContentPane().add(panel);
+        
+        JLabel lblNewLabel = new JLabel("");
+        lblNewLabel.setIcon(new ImageIcon(CadastroFrame.class.getResource("/resources/1.png")));
+        lblNewLabel.setBounds(0, 11, 733, 117);
+        panel.add(lblNewLabel);
+        
+        JLabel lblNewLabel_4_1 = new JLabel("");
+        lblNewLabel_4_1.setIcon(new ImageIcon(CadastroFrame.class.getResource("/resources/hsg (2).png")));
+        lblNewLabel_4_1.setBounds(0, 0, 64, 50);
+        frame.getContentPane().add(lblNewLabel_4_1);
+        
+        JLabel lblNewLabel_2 = new JLabel("");
+        lblNewLabel_2.setIcon(new ImageIcon(CadastroFrame.class.getResource("/resources/cadastrar (1).png")));
+        lblNewLabel_2.setBounds(445, 212, 322, 219);
+        frame.getContentPane().add(lblNewLabel_2);
+        
+        JSeparator separator = new JSeparator();
+        separator.setBackground(new Color(20, 129, 99));
+        separator.setBounds(29, 270, 200, 25);
+        frame.getContentPane().add(separator);
+        
+        JSeparator separator_1 = new JSeparator();
+        separator_1.setBackground(new Color(20, 129, 99));
+        separator_1.setBounds(29, 306, 200, 25);
+        frame.getContentPane().add(separator_1);
+        
+        JSeparator separator_2 = new JSeparator();
+        separator_2.setBackground(new Color(20, 129, 99));
+        separator_2.setBounds(29, 345, 200, 25);
+        frame.getContentPane().add(separator_2);
+        
+        JSeparator separator_3 = new JSeparator();
+        separator_3.setBackground(new Color(20, 129, 99));
+        separator_3.setBounds(282, 270, 200, 25);
+        frame.getContentPane().add(separator_3);
+        
+        JSeparator separator_4 = new JSeparator();
+        separator_4.setBackground(new Color(20, 129, 99));
+        separator_4.setBounds(282, 306, 200, 25);
+        frame.getContentPane().add(separator_4);
+        
+        JSeparator separator_5 = new JSeparator();
+        separator_5.setBackground(new Color(20, 129, 99));
+        separator_5.setBounds(282, 345, 200, 25);
+        frame.getContentPane().add(separator_5);
 
         textField.addFocusListener(new FocusAdapter() {
             @Override //1
@@ -175,7 +233,7 @@ public class CadastroFrame {
         textField_1.addFocusListener(new FocusAdapter() {
             @Override //1
             public void focusGained(FocusEvent e) {
-                if (textField_1.getText().equals("Nome")) {
+                if (textField_1.getText().equals("CPF")) {
                     textField_1.setText("");
                     textField_1.setForeground(Color.BLACK);
                 }
@@ -184,8 +242,80 @@ public class CadastroFrame {
             @Override //2
             public void focusLost(FocusEvent e) {
                 if (textField_1.getText().isEmpty()) {
-                    textField_1.setText("Nome");
+                    textField_1.setText("CPF");
                     textField_1.setForeground(Color.GRAY);
+                }
+            }
+        });
+        
+        textField_2.addFocusListener(new FocusAdapter() {
+            @Override //1
+            public void focusGained(FocusEvent e) {
+            	if (textField_2.getText().equals("Telefone")) {
+            		textField_2.setText("");
+                    textField_2.setForeground(Color.BLACK);
+            	}
+            }
+
+            @Override //2
+            public void focusLost(FocusEvent e) {
+                if (textField_2.getText().isEmpty()) {
+                    textField_2.setText("Telefone");
+                    textField_2.setForeground(Color.GRAY);
+                }
+            }
+        });
+        
+        textField_3.addFocusListener(new FocusAdapter() {
+            @Override //1
+            public void focusGained(FocusEvent e) {
+            	if (textField_3.getText().equals("CEP")) {
+            		textField_3.setText("");
+                    textField_3.setForeground(Color.BLACK);
+            	}
+            }
+
+            @Override //2
+            public void focusLost(FocusEvent e) {
+                if (textField_3.getText().isEmpty()) {
+                    textField_3.setText("CEP");
+                    textField_3.setForeground(Color.GRAY);
+                }
+            }
+        });
+
+        textField_4.addFocusListener(new FocusAdapter() {
+            @Override //1
+            public void focusGained(FocusEvent e) {
+            	if (textField_4.getText().equals("Data de Nascimento")) {
+            		textField_4.setText("");
+                    textField_4.setForeground(Color.BLACK);
+            	}
+            }
+
+            @Override //2
+            public void focusLost(FocusEvent e) {
+                if (textField_4.getText().isEmpty()) {
+                    textField_4.setText("Data de Nascimento");
+                    textField_4.setForeground(Color.GRAY);
+                }
+            }
+        });
+        
+        textField_5.addFocusListener(new FocusAdapter() {
+            @Override //1
+            public void focusGained(FocusEvent e) {
+            	if (textField_5.getText().equals("Senha")) {
+            		textField_5.setText("");
+                    textField_5.setForeground(Color.BLACK);
+            	}
+            }
+
+            @Override //2
+            public void focusLost(FocusEvent e) {
+                if (textField_5.getText().isEmpty()) {
+                    textField_5.setText("Senha");
+                    textField_5.setForeground(Color.GRAY);
                 }
             }
         });
