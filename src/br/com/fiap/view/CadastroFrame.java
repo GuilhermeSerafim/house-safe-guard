@@ -106,7 +106,7 @@ public class CadastroFrame {
         textField_1.setBounds(29, 282, 200, 25);
         frame.getContentPane().add(textField_1);
 
-        GradientButton button = new GradientButton("SIMULE E CONTRATE", new Color(35, 197, 174), new Color(25, 163, 143), 45, 225, 5, 20);
+        GradientButton button = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 5, 20);
         button.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	}

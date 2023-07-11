@@ -41,7 +41,7 @@ public class HomeFrame {
 		frame.setUndecorated(true);
 		frame.getContentPane().setLayout(null);
 
-		GradientButton btnEntrar = new GradientButton("ENTRAR", new Color(0x23c5ae), new Color(0x19a38f), 45, 225, 5, 6);
+		GradientButton btnEntrar = new GradientButton("ENTRAR", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 5, 6);
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EntrarFrame entrar = new EntrarFrame();
@@ -90,7 +90,7 @@ public class HomeFrame {
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_2.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 		
-				GradientButton btnQueroFazer = new GradientButton("SIMULE E CONTRATE!", new Color(0x23c5ae), new Color(0x19a38f), 45, 225, 5, 6);
+				GradientButton btnQueroFazer = new GradientButton("SIMULE E CONTRATE!", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 5, 6);
 				btnQueroFazer.setBounds(21, 337, 265, 45);
 				panel_1.add(btnQueroFazer);
 				btnQueroFazer.addActionListener(new ActionListener() {

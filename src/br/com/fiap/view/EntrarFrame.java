@@ -77,7 +77,7 @@ public class EntrarFrame {
 		lblNewLabel_2.setIcon(new ImageIcon(EntrarFrame.class.getResource("/resources/Black Coconut Tree Logo.png")));
 		panel.add(lblNewLabel_2);
 		
-		GradientButton button = new GradientButton("SIMULE E CONTRATE", new Color(0x23c5ae), new Color(0x19a38f), 45, 225, 5, 20);
+		GradientButton button = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 5, 20);
 		button.setText("ENTRAR");
 		button.setBounds(395, 318, 283, 43);
 		frame.getContentPane().add(button);
@@ -92,12 +92,14 @@ public class EntrarFrame {
 		button.setBackground(new Color(23, 197, 174));
 		
 		textField = new JTextField();
+		textField.setBorder(null);
 		textField.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		textField.setBounds(395, 181, 283, 36);
+		textField.setBounds(395, 181, 283, 32);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JSeparator separator = new JSeparator();
+		separator.setBackground(new Color(20, 129, 99));
 		separator.setBounds(395, 216, 283, 2);
 		frame.getContentPane().add(separator);
 		
@@ -119,10 +121,12 @@ public class EntrarFrame {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JSeparator separator_1 = new JSeparator();
+		separator_1.setBackground(new Color(20, 129, 99));
 		separator_1.setBounds(395, 287, 283, 2);
 		frame.getContentPane().add(separator_1);
 		
 		textField_1 = new JTextField();
+		textField_1.setBorder(null);
 		textField_1.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		textField_1.setColumns(10);
 		textField_1.setBounds(395, 253, 283, 36);

@@ -242,7 +242,7 @@ public class CotadorFrame {
     lblNewLabel_3_2_2.setBounds(360, 317, 316, 20);
     frame.getContentPane().add(lblNewLabel_3_2_2);
 
-    GradientButton grdntbtnProsseguir = new GradientButton("SIMULE E CONTRATE", new Color(35, 197, 174), new Color(25, 163, 143), 45, 225, 5, 6);
+    GradientButton grdntbtnProsseguir = new GradientButton("SIMULE E CONTRATE", new Color(0xa1d28c), new Color(0x00a089), 45, 225, 5, 6);
     grdntbtnProsseguir.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
             SegurosFrame seguros = new SegurosFrame();
