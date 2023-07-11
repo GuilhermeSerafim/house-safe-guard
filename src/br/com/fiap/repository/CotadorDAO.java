@@ -19,15 +19,16 @@ public class CotadorDAO {
 				this.conexao = ConnectionFactory.conectar();
 			}
 
-			public void insert(Cotador contador ) {
-				String sql = "insert into cotador(cpf,nome,tp_residencial,valor,dataCadastro) values (?,?,?,?,?)";
+			public void insert(Cotador cotador ) {
+				String sql = "insert into cotador(cpf,nm_completo,tp_residencial,valor_imovel, cep, num_residencia) values (?,?,?,?,?,?)";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
-					stmt.setString(1, contador.getCpf()); 
-					stmt.setString(2, contador.getNome()); 
-					stmt.setString(3, contador.getTpResidencia());
-					stmt.setDouble(4, contador.getValor());
-					stmt.setDate(5, contador.getDataCadastro());
+					stmt.setString(1, cotador.getCpf()); 
+					stmt.setString(2, cotador.getNome()); 
+					stmt.setString(3, cotador.getTpResidencia());
+					stmt.setDouble(4, cotador.getValor());
+					stmt.setString(5,cotador.getCep());
+					stmt.setString(6, cotador.getNumResidencia());
 					stmt.execute(); 
 					stmt.close();
 				} catch (SQLException e) {
@@ -36,51 +37,55 @@ public class CotadorDAO {
 			}
 
 			public List<Cotador> selectAll() {
-				List<Cotador> contadores = new ArrayList<Cotador>();
-				String sql = "select * from cotador order by nome";
+				List<Cotador> cotadores = new ArrayList<Cotador>();
+				String sql = "select * from cotador order by nm_completo";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					ResultSet rs = stmt.executeQuery();
 
 					while (rs.next()) {
-						Cotador contador = new Cotador();
-						contador.setCpf(rs.getString("cpf"));
-						contador.setNome(rs.getString("nome"));
-						contador.setTpResidencia(rs.getString("tp_residencial"));
-						contador.setValor(rs.getDouble("valor"));
-						contador.setDataCadastro(rs.getDate("dataCadastro"));
+						Cotador cotador = new Cotador();
+						cotador.setCpf(rs.getString("cpf"));
+						cotador.setNome(rs.getString("nm_completo"));
+						cotador.setTpResidencia(rs.getString("tp_residencial"));
+						cotador.setValor(rs.getDouble("valor_imovel"));
+						cotador.setCep(rs.getString("cep"));
+						cotador.setNumResidencia(rs.getString("num_residencia"));
 
-						contadores.add(contador);
+
+						cotadores.add(cotador);
 					}
 					rs.close();
 					stmt.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-				return contadores;
+				return cotadores;
 			}
 
 			public Cotador selectByCpf(String cpf) {
-				Cotador contador = null;
+				Cotador cotador = null;
 				String sql = "select * from cotador where cpf=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
 					stmt.setString(1, cpf);
 					ResultSet rs = stmt.executeQuery();
 					while (rs.next()) {
-						contador = new Cotador();
-						contador.setCpf(rs.getString("cpf"));
-						contador.setNome(rs.getString("nome"));
-						contador.setTpResidencia(rs.getString("tp_residencial"));
-						contador.setValor(rs.getDouble("valor"));
-						contador.setDataCadastro(rs.getDate("dataCadastro"));
+						cotador = new Cotador();
+						cotador.setCpf(rs.getString("cpf"));
+						cotador.setNome(rs.getString("nome"));
+						cotador.setTpResidencia(rs.getString("tp_residencial"));
+						cotador.setValor(rs.getDouble("valor_imovel"));
+						cotador.setCep(rs.getString("cep"));
+						cotador.setNumResidencia(rs.getString("num_residencia"));
+
 					}
 					rs.close();
 					stmt.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-				return contador;
+				return cotador;
 			}
 
 			public void delete(String cpf) {
@@ -95,14 +100,15 @@ public class CotadorDAO {
 				}
 			}
 
-			public void update(Cotador contador) {
-				String sql = "update cotador set nome=? , tp_residencial =? , valor=? where cpf=?";
+			public void update(Cotador cotador) {
+				String sql = "update cotador set nome=? , tp_residencial =? , valor_imovel=?, num_residencia where cpf=?";
 				try {
 					PreparedStatement stmt = conexao.prepareStatement(sql);
-					stmt.setString(1, contador.getNome());
-					stmt.setString(2, contador.getTpResidencia());
-				    stmt.setDouble(3, contador.getValor());
-					stmt.setString(4, contador.getCpf());
+					stmt.setString(1, cotador.getNome());
+					stmt.setString(2, cotador.getTpResidencia());
+				    stmt.setDouble(3, cotador.getValor());
+					stmt.setString(4, cotador.getCpf());
+					stmt.setString(5, cotador.getNumResidencia());
 
 					stmt.execute();
 					stmt.close();

@@ -4,22 +4,24 @@ import java.sql.Date;
 
 public class Cotador {
 
-	private String nome, cpf, tpResidencia;
+	private String nome, cpf, tpResidencia,cep,numResidencia;
 	private Double valor;
-	private Date dataCadastro;
 	
 	public Cotador(){
 		
 	}
 	
 	// Construtor
-	public Cotador(String cpf, String nome, String tpResidencia, Double valor) {
+	public Cotador(String cpf, String nome, String tpResidencia, Double valor, String cep, String numResidencia) {
 		this.cpf = cpf;
 		this.nome = nome;
 		this.tpResidencia = tpResidencia;
 		this.valor = valor;
-		this.dataCadastro = new Date(System.currentTimeMillis());
+		this.cep = cep;
+		this.numResidencia = numResidencia;
 	}
+	
+	
 	
 	// Getters e Setters
 	public String getNome() {
@@ -46,7 +48,28 @@ public class Cotador {
 		this.valor = valor;
 	}
 
-	
+
+	public String getCep() {
+		return cep;
+	}
+
+	@Override
+	public String toString() {
+		return "Cotador [nome=" + nome + ", cpf=" + cpf + ", tpResidencia=" + tpResidencia + ", cep=" + cep
+				+ ", numResidencia=" + numResidencia + ", valor=" + valor + "]";
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public String getNumResidencia() {
+		return numResidencia;
+	}
+
+	public void setNumResidencia(String numResidencia) {
+		this.numResidencia = numResidencia;
+	}
 
 	public String getCpf() {
 		return cpf;
@@ -55,14 +78,6 @@ public class Cotador {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
-	public Date getDataCadastro() {
-		return dataCadastro;
-	}
-
-	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
-	}
-
+	
 	
 }

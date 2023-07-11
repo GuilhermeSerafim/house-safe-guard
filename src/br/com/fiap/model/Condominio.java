@@ -1,5 +1,4 @@
 package br.com.fiap.model;
-import br.com.fiap.view.Residencia;
 
 public class Condominio implements Residencia{
 
@@ -33,6 +32,12 @@ public class Condominio implements Residencia{
 	public double AssistenciaVIP(double valor) {
 		// TODO Auto-generated method stub
 		return assistencia = seguro + (10/100);
+	}
+
+	@Override
+	public double AssistenciaBasica(double assistencia) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

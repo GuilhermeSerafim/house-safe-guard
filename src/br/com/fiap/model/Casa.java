@@ -1,10 +1,11 @@
 package br.com.fiap.model;
-import br.com.fiap.view.Residencia;
 
 public class Casa implements Residencia{
 
 	private double seguro;
 	private double assistencia;
+	
+					// SEGUROS // 
 	
 	@Override
 	public double SeguroBasico(double valor) {
@@ -23,16 +24,26 @@ public class Casa implements Residencia{
 		return seguro = ((valor / 100)*0.0084)*30 ;
 	}
 
+					// ASSISTENCIAS //
+	
 	@Override
-	public double AssistenciaEspecial(double valor) {
+	public double AssistenciaBasica(double assistencia) {
 		// TODO Auto-generated method stub
-		return assistencia = seguro + 0.05;
+		return assistencia;
+	}
+
+	
+	@Override
+	public double AssistenciaEspecial(double assistencia) {
+		// TODO Auto-generated method stub
+		return assistencia = 18.90;
 	}
 
 	@Override
 	public double AssistenciaVIP(double valor) {
 		// TODO Auto-generated method stub
-		return assistencia = seguro + (10/100);
+		return assistencia = 24.90;
 	}
+
 
 }

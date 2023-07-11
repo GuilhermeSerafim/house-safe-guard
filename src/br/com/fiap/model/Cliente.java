@@ -7,8 +7,8 @@ import br.com.fiap.util.CriptografiaUtils;
 public class Cliente {
 		
 			//Declarando variaveis;
-			String nm_completo,cpf, email,cep,senha,telefone;
-			Date dataNascimento;
+			String cpf, email,cep,senha,telefone;
+			Integer idade;
 			Date dataCadastro;
 			Double valor_seguro;
 	
@@ -16,15 +16,14 @@ public class Cliente {
 				
 			}
 			//criação do primeiro método construtor
-			public Cliente(String nm_completo, String cpf, String email, String cep, String senha,
-					String telefone, Date dataNascimento) {
-				this.nm_completo = nm_completo;
+			public Cliente( String cpf, String email, String cep, String senha,
+					String telefone, Integer idade) {
 				this.cpf = cpf;
 				this.email = email;
 				this.cep = cep;
-				this.senha = senha;
+				setSenha(senha);
 				this.telefone = telefone;
-				this.dataNascimento = dataNascimento;
+				this.idade= idade;
 				this.dataCadastro = new Date (System.currentTimeMillis());
 				
 				//Criação dos moetodos get e set
@@ -38,13 +37,8 @@ public class Cliente {
 			}
 			public void setValor_seguro(Double valor_seguro) {
 				this.valor_seguro = valor_seguro;
-			}
-			public String getNm_completo() {
-				return nm_completo;
-			}
-			public void setNm_completo(String nm_completo) {
-				this.nm_completo = nm_completo;
-			}
+			}	
+		
 			public String getCpf() {
 				return cpf;
 			}
@@ -89,12 +83,12 @@ public class Cliente {
 				this.telefone = telefone;
 			}
 
-			public Date getDataNascimento() {
-				return dataNascimento;
+			public Integer getIdade() {
+				return idade;
 			}
 
-			public void setDataNascimento(Date dataNascimento) {
-				this.dataNascimento = dataNascimento;
+			public void setIdade(Integer idade) {
+				this.idade = idade;
 			}
 
 			public Date getDataCadastro() {
@@ -103,6 +97,16 @@ public class Cliente {
 
 			public void setDataCadastro(Date dataCadastro) {
 				this.dataCadastro = dataCadastro;
+			}
+			public void setCotador(Cotador cotador) {
+				// TODO Auto-generated method stub
+				
+			}
+			@Override
+			public String toString() {
+				return "Cliente [cpf=" + cpf + ", email=" + email + ", cep=" + cep
+						+ ", senha=" + senha + ", telefone=" + telefone + ", idade=" + idade
+						+ ", dataCadastro=" + dataCadastro + ", valor_seguro=" + valor_seguro + "]";
 			} 
 			
 			
