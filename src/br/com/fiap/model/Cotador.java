@@ -53,11 +53,7 @@ public class Cotador {
 		return cep;
 	}
 
-	@Override
-	public String toString() {
-		return "Cotador [nome=" + nome + ", cpf=" + cpf + ", tpResidencia=" + tpResidencia + ", cep=" + cep
-				+ ", numResidencia=" + numResidencia + ", valor=" + valor + "]";
-	}
+	
 
 	public void setCep(String cep) {
 		this.cep = cep;
@@ -79,5 +75,9 @@ public class Cotador {
 		this.cpf = cpf;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Cotador [nome=" + nome + ", cpf=" + cpf + ", tpResidencia=" + tpResidencia + ", cep=" + cep
+				+ ", numResidencia=" + numResidencia + ", valor=" + valor + "]";
+	}
 }

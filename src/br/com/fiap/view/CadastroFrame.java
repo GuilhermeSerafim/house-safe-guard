@@ -341,14 +341,11 @@ public class CadastroFrame {
                 && !textField_5.getText().equals("")) {
         
                  Cliente cliente = new Cliente(textField_1.getText(), textField.getText(), textField_3.getText(),
-                         textField_5.getText(), textField_2.getText(), Integer.parseInt(textField_4.getText()));
+                         textField_5.getText(), textField_2.getText(),(textField_4.getText()));
                  dao.insert(cliente); // Chamada ao método insert() do CotadorDAO
                  JOptionPane.showMessageDialog(frame, "Salvo com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
                  limpar();
-                 
-            
-                 JOptionPane.showMessageDialog(frame, "Data de Nascimento inválida. Formato esperado: dd/MM/yyyy", "Erro", JOptionPane.ERROR_MESSAGE);
-             
+                             
          } else {
              JOptionPane.showMessageDialog(frame, "Nome e Descrição devem ser informados.", "Erro", JOptionPane.ERROR_MESSAGE);
          }

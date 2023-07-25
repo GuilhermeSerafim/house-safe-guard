@@ -27,7 +27,7 @@ public class ConnectionFactory {
 				comboPooledDataSource.setUser("tm_isabella_santana");
 				comboPooledDataSource.setPassword("200405");
 				//n�mero m�ximo de conex�es
-				comboPooledDataSource.setMaxPoolSize(30);
+				comboPooledDataSource.setMaxPoolSize(20);
 				conexao = comboPooledDataSource;
 			}
 			return conexao.getConnection();

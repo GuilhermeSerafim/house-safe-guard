@@ -8,16 +8,17 @@ public class Cliente {
 		
 			//Declarando variaveis;
 			String cpf, email,cep,senha,telefone;
-			Integer idade;
+			String idade;
 			Date dataCadastro;
 			Double valor_seguro;
+			private Cotador cotador;
 	
 			public Cliente () {
 				
 			}
 			//criação do primeiro método construtor
 			public Cliente( String cpf, String email, String cep, String senha,
-					String telefone, Integer idade) {
+					String telefone, String idade) {
 				this.cpf = cpf;
 				this.email = email;
 				this.cep = cep;
@@ -32,6 +33,9 @@ public class Cliente {
 			
 
 	
+			public Cotador getCotador() {
+				return cotador;
+			}
 			public Double getValor_seguro() {
 				return valor_seguro;
 			}
@@ -83,11 +87,11 @@ public class Cliente {
 				this.telefone = telefone;
 			}
 
-			public Integer getIdade() {
+			public String getIdade() {
 				return idade;
 			}
 
-			public void setIdade(Integer idade) {
+			public void setIdade(String idade) {
 				this.idade = idade;
 			}
 
@@ -99,6 +103,7 @@ public class Cliente {
 				this.dataCadastro = dataCadastro;
 			}
 			public void setCotador(Cotador cotador) {
+				this.cotador = cotador;
 				// TODO Auto-generated method stub
 				
 			}
@@ -107,12 +112,17 @@ public class Cliente {
 				return "Cliente [cpf=" + cpf + ", email=" + email + ", cep=" + cep
 						+ ", senha=" + senha + ", telefone=" + telefone + ", idade=" + idade
 						+ ", dataCadastro=" + dataCadastro + ", valor_seguro=" + valor_seguro + "]";
+			}
+			
+			
+
+
 			} 
 			
 			
 
 
-	}
+	
 
 
 

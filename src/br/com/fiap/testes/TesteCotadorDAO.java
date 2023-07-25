@@ -17,14 +17,14 @@ public class TesteCotadorDAO {
 		public static void main(String[] args) throws SQLException{
 
 			CotadorDAO dao = new CotadorDAO();
-	//	Cotador gi = new Cotador("47130757876","Gisele Pontes Coutinho","apartamento", 200000.0, "04342150", "177");
+	//Cotador gi = new Cotador("47130757876","Gisele Pontes Coutinho","apartamento", 200000.0, "04342150", "177");
 			//Contador adriane = new Contador("Adriane", "apartamento", 200000.0);
 			
 //dao.insert(gi);
 			//dao.insert(adriane);
 				ClienteDAO da = new ClienteDAO();
-	Cliente gii = new Cliente("47130757876", "gigi@gmail.com", "11954715689", "04342150", "hello", 15);
-		da.insert(gii);
+				//Cliente gii = new Cliente("47130757876", "gigi@gmail.com", "11954715689", "04342150", "hello", "15");
+		//da.insert(gii);
 			
 
 			List<Cotador> Cotadores = dao.selectAll();
@@ -49,8 +49,17 @@ public class TesteCotadorDAO {
 				System.out.println("  ");
 			}
 			
-			List<Cliente> Client = da.join("47130757876");
-		System.out.println("Os dados do cliente" + Client);
+		//	List<Cliente> Client = da.join("54191563858");
+		//System.out.println("Os dados do cliente" + Client);
+		
+	da.delete("54191563858");
+	
+	
+	Cliente cliente = new Cliente("123456788", "novoemail@example.com", "98765-4321", "aaa", "aa", "aa");
+	ClienteDAO clienteDAO = new ClienteDAO();
+	clienteDAO.update(cliente);
+
+	
 				
 		
 		

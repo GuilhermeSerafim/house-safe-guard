@@ -34,6 +34,6 @@ public class CriptografiaUtils {
             if (hex.length() == 1) hexString.append('0');
             hexString.append(hex);
         }
-		return null;
+		return hash.toString(16);
 	}
 	}

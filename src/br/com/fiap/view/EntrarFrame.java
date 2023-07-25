@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -17,6 +18,9 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import br.com.fiap.model.Cliente;
+import br.com.fiap.repository.ClienteDAO;
 
 public class EntrarFrame {
 
@@ -34,7 +38,6 @@ public class EntrarFrame {
 					EntrarFrame window = new EntrarFrame();
 					window.frame.setVisible(true);
 					window.frame.setLocationRelativeTo(null);
-					window.frame.requestFocusInWindow();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -85,10 +88,57 @@ public class EntrarFrame {
 		button.addActionListener(new ActionListener() {
 			//Ação do button
 			public void actionPerformed(ActionEvent e) {
-				InfoBDFrame info = new InfoBDFrame();
-                info.frame.setVisible(true);
-                frame.dispose();
-                info.frame.setLocationRelativeTo(null);
+				button.addActionListener(new ActionListener() {
+				    public void actionPerformed(ActionEvent e) {
+				    	String cpfDigitado = textField.getText();
+
+				            InfoBDFrame info = null;
+				            try {
+				                info = new InfoBDFrame(cpfDigitado); // Passa o cpfDigitado como parâmetro
+				            } catch (SQLException e1) {
+				                e1.printStackTrace();
+				            }
+
+						try {
+							info = new InfoBDFrame();
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+				    	info.frame.setVisible(true); // Defina a visibilidade da janela EntrarFrame como true
+				        frame.dispose();
+				        info.frame.setLocationRelativeTo(null);
+
+				        // Verifica se o CPF digitado não está vazio
+				        if (!cpfDigitado.isEmpty()) {
+				            ClienteDAO clienteDAO = null;
+							try {
+								clienteDAO = new ClienteDAO();
+							} catch (SQLException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+				            Cliente cliente = clienteDAO.selectById(cpfDigitado);
+
+				            // Verifica se o cliente foi encontrado no banco de dados
+				            if (cliente != null) {
+				                // Verifica se o CPF digitado corresponde ao CPF do cliente
+				                if (cliente.getCpf().equals(cpfDigitado)) {
+				                    // Redireciona para a próxima tela ou execute as ações necessárias para um login bem-sucedido
+				                    // ...
+				                    JOptionPane.showMessageDialog(frame, "Login bem-sucedido! Você será redirecionado para a próxima tela.");
+				                } else {
+				                    JOptionPane.showMessageDialog(frame, "CPF ou senha incorretos. Tente novamente.");
+				                }
+				            } else {
+				                JOptionPane.showMessageDialog(frame, "CPF ou senha incorretos. Tente novamente.");
+				            }
+				        } else {
+				            JOptionPane.showMessageDialog(frame, "Por favor, digite o CPF.");
+				        }
+				    }
+				});
+
 			}
 		});
 		button.setFont(new Font("Segoe UI", Font.BOLD, 14));
@@ -140,6 +190,7 @@ public class EntrarFrame {
 		lblNewLabel_2_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
 				HomeFrame home = new HomeFrame(); // Crie uma instância da classe EntrarFrame
 				home.frame.setVisible(true); // Defina a visibilidade da janela EntrarFrame como true
 		        frame.dispose();

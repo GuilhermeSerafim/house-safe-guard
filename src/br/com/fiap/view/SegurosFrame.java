@@ -17,6 +17,7 @@ import java.awt.event.ActionEvent;
 public class SegurosFrame {
 
 	JFrame frame;
+	
 
 	/**
 	 * Launch the application.
@@ -40,6 +41,7 @@ public class SegurosFrame {
 	 */
 	public SegurosFrame() {
 		initialize();
+		
 	}
 
 	/**
