@@ -52,7 +52,7 @@ public class InfoBDFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    String cpfDigitado = "47130757876"; // Defina o CPF digitado pelo usuário aqui
+                    String cpfDigitado = "54191563858"; // Defina o CPF digitado pelo usuário aqui
                     InfoBDFrame window = new InfoBDFrame(cpfDigitado);
                     window.frame.setVisible(true);
                     window.frame.requestFocusInWindow();
